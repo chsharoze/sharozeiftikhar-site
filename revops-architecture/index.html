@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HubSpot RevOps Consultant &amp; CRM Architecture | Sharoze Iftikhar</title>
+    <meta name="description" content="CRM design, pipeline structure, and reporting that makes HubSpot report the truth. RevOps architecture for B2B revenue teams.">
+    <link rel="canonical" href="https://sharozeiftikhar.com/revops-architecture/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="HubSpot RevOps Consultant &amp; CRM Architecture | Sharoze Iftikhar">
+    <meta property="og:description" content="CRM design, pipeline structure, and reporting that makes HubSpot report the truth. RevOps architecture for B2B revenue teams.">
+    <meta property="og:url" content="https://sharozeiftikhar.com/revops-architecture/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sharoze Iftikhar">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://sharozeiftikhar.com/#person",
+          "name": "Sharoze Iftikhar",
+          "url": "https://sharozeiftikhar.com/"
+        },
+        {
+          "@type": "Service",
+          "@id": "https://sharozeiftikhar.com/revops-architecture/#service",
+          "name": "HubSpot RevOps Architecture & CRM Design",
+          "serviceType": "RevOps Architecture",
+          "provider": {
+            "@id": "https://sharozeiftikhar.com/#person"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Worldwide"
+          },
+          "description": "CRM design, pipeline structure, and reporting that makes HubSpot report the truth. RevOps architecture for B2B revenue teams."
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://sharozeiftikhar.com/revops-architecture/#webpage",
+          "url": "https://sharozeiftikhar.com/revops-architecture/",
+          "name": "HubSpot RevOps Consultant & CRM Architecture | Sharoze Iftikhar",
+          "description": "CRM design, pipeline structure, and reporting that makes HubSpot report the truth. RevOps architecture for B2B revenue teams.",
+          "breadcrumb": {
+            "@id": "https://sharozeiftikhar.com/revops-architecture/#breadcrumb"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://sharozeiftikhar.com/revops-architecture/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://sharozeiftikhar.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "RevOps Architecture",
+              "item": "https://sharozeiftikhar.com/revops-architecture/"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --card-bg: #1a1a1a;
+            --accent-color: #f5a623;
+            --accent-hover: #e09214;
+            --text-primary: #f0f0f0;
+            --text-secondary: #888888;
+            --border-color: #2a2a2a;
+            --card-hover: #222222;
+            --max-width: 680px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        /* Nav */
+        .site-nav {
+            border-bottom: 1px solid var(--border-color);
+            width: 100%;
+        }
+
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-brand:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links a.active {
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 2px;
+        }
+
+        /* Wrapper for single column layout, centered */
+        .wrapper {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3.5rem;
+            box-sizing: border-box;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            width: 100%;
+        }
+
+        .title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 48px;
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .subhead {
+            color: var(--text-secondary);
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        /* Intro Section */
+        .intro-p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Services Sections */
+        .services-list {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            width: 100%;
+        }
+
+        .service-item {
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .service-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 28px;
+            font-weight: 400;
+            color: var(--text-primary);
+        }
+
+        .service-text {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            width: 100%;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2.5rem;
+        }
+
+        .section-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 32px;
+            font-weight: 400;
+            color: var(--text-primary);
+        }
+
+        .steps-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 24px;
+            color: var(--accent-color);
+            font-weight: 400;
+            line-height: 1;
+            width: 30px;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .step-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .step-text {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            width: 100%;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2.5rem;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        .faq-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .faq-answer {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: none;
+            padding: 0.75rem 1.75rem;
+            border-radius: 6px;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #0d0d0d;
+            border: 1px solid var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            border-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .cta-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-secondary-link {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .cta-secondary-link:hover {
+            color: var(--accent-hover);
+        }
+
+        /* Footer Section */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .copyright {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-link {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--accent-color);
+        }
+
+        /* Accessibility focus outline */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 640px) {
+            .wrapper {
+                padding: 3rem 1.25rem;
+                gap: 3rem;
+            }
+
+            .title {
+                font-size: 36px;
+            }
+
+            .subhead {
+                font-size: 18px;
+            }
+
+            .service-title {
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 26px;
+            }
+
+            .cta-links {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 1.25rem;
+                text-align: center;
+                padding-top: 1.5rem;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-nav">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">Sharoze Iftikhar</a>
+            <nav class="nav-links">
+                <a href="/services/" class="active">Services</a>
+                <a href="/about/">About</a>
+                <a href="/contact/">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        <main class="hero">
+            <h1 class="title">HubSpot RevOps Architecture &amp; CRM Design</h1>
+            <p class="subhead">Pipeline structure, reporting, and data model design that makes HubSpot actually report the truth.</p>
+        </main>
+
+        <section class="intro">
+            <p class="intro-p">The problem with most CRM setups is they don't reflect the real sales motion, resulting in broken attribution and reports that nobody in leadership trusts. When object relationships are poorly mapped and lifecycle syncing is broken, manual workarounds multiply and data integrity deteriorates. I design and build clean HubSpot database architectures that map directly to your actual business operations, ensuring every stage, property, and calculation is clean and correct.</p>
+        </section>
+
+        <section class="services-list">
+            <div class="service-item">
+                <h2 class="service-title">CRM &amp; Data Model Design</h2>
+                <p class="service-text">We map and build custom object relationships, property architectures, and association schemas that reflect how deals actually move. By designing a clean data schema from the start, we eliminate duplicate entries, manual workarounds, and broken data relationships. The outcome is a scalable HubSpot foundation that handles complex transactional models without breaking.</p>
+            </div>
+
+            <div class="service-item">
+                <h2 class="service-title">Pipeline &amp; Lifecycle Architecture</h2>
+                <p class="service-text">We define deal and pipeline stages with objective exit criteria so your sales velocity and forecasting metrics mean something. Lifecycle stages are programmatically synced across objects so that marketing and sales handoff logic doesn't leak. This structured flow ensures complete visibility and consistency across the entire customer lifecycle.</p>
+            </div>
+
+            <div class="service-item">
+                <h2 class="service-title">Reporting &amp; Attribution</h2>
+                <p class="service-text">We design and build custom dashboards that answer real business questions and show your actual pipeline health. Attribution models are aligned to how your revenue happened, not just basic default rules. You get clear, trusted reports that prove marketing ROI and guide strategic revenue decisions.</p>
+            </div>
+
+            <div class="service-item">
+                <h2 class="service-title">Workflow &amp; Automation</h2>
+                <p class="service-text">We engineer HubSpot workflow architectures that run smoothly and silently in the background without needing constant babysitting. By incorporating custom coded actions, we automate complex calculations, assignments, and API integrations with strict execution guardrails. This eliminates database errors, saves time, and keeps your operational data pristine.</p>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <h2 class="section-title">How It Works</h2>
+            <ol class="steps-list">
+                <li class="step-item">
+                    <span class="step-num">1</span>
+                    <div class="step-content">
+                        <h3 class="step-title">Audit</h3>
+                        <p class="step-text">We analyze your current CRM architecture, pipeline setups, workflows, and integrations to understand what exists and identify exactly what is broken.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <span class="step-num">2</span>
+                    <div class="step-content">
+                        <h3 class="step-title">Design</h3>
+                        <p class="step-text">We map the right data model, pipeline structures, and lifecycle logic tailored specifically to how your business actually operates.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <span class="step-num">3</span>
+                    <div class="step-content">
+                        <h3 class="step-title">Build</h3>
+                        <p class="step-text">We build the architecture in HubSpot, run rigorous QA, and deliver complete documentation explaining what was built and why.</p>
+                    </div>
+                </li>
+            </ol>
+        </section>
+
+        <section class="faq-section">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3 class="faq-question">What does a RevOps audit involve?</h3>
+                    <p class="faq-answer">An audit involves a thorough assessment of your current CRM data model, pipeline structure, workflow architecture, and reporting gaps. The findings are delivered as a documented findings and recommendations report outlining exactly where issues lie and how to fix them.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">How long does a RevOps engagement take?</h3>
+                    <p class="faq-answer">The timeline depends entirely on the scope. A focused audit typically takes 1 to 2 weeks, while a full CRM rebuild and custom implementation takes 4 to 8 weeks.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Do you work with HubSpot only?</h3>
+                    <p class="faq-answer">Yes, I work exclusively with HubSpot. I am a deep HubSpot specialist rather than a generalist CRM consultant, ensuring you get the absolute most out of the platform.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <a href="/contact/" class="btn btn-primary">Book a RevOps audit</a>
+            <div class="cta-links">
+                <a href="/ai-workflow-automation/" class="cta-secondary-link">AI Workflow Automation &rarr;</a>
+                <a href="/hubspot-training/" class="cta-secondary-link">HubSpot Training &rarr;</a>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p class="copyright">&copy; 2026 Sharoze Iftikhar</p>
+            <div class="footer-links">
+                <a href="/services/" class="footer-link">Services</a>
+                <a href="/about/" class="footer-link">About</a>
+                <a href="/contact/" class="footer-link">Contact</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
