@@ -35,10 +35,6 @@
             "AI Solutions Architect",
             "HubSpot Certified Trainer"
           ],
-          "address": {
-            "@type": "PostalAddress",
-            
-          },
           "url": "https://sharozeiftikhar.com/",
           "sameAs": [
             "https://www.linkedin.com/in/sharoze/",
@@ -288,6 +284,96 @@
             border-bottom-color: transparent;
         }
 
+        /* Contact embed blocks */
+        .contact-block {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2.5rem;
+        }
+
+        .block-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 28px;
+            font-weight: 400;
+            color: var(--text-primary);
+        }
+
+        .meetings-iframe-container {
+            width: 100%;
+            min-height: 660px;
+        }
+
+        /* Dark-theme overrides for the embedded HubSpot form */
+        .hs-form-frame, .hs-form {
+            width: 100%;
+        }
+
+        .hs-form label {
+            color: var(--text-primary);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .hs-form .hs-input,
+        .hs-form input[type="text"],
+        .hs-form input[type="email"],
+        .hs-form input[type="tel"],
+        .hs-form input[type="number"],
+        .hs-form textarea,
+        .hs-form select {
+            width: 100% !important;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.65rem 0.75rem;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            margin-top: 0.35rem;
+        }
+
+        .hs-form .hs-input:focus,
+        .hs-form textarea:focus,
+        .hs-form select:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 1px;
+            border-color: var(--accent-color);
+        }
+
+        .hs-form fieldset {
+            max-width: 100% !important;
+        }
+
+        .hs-form .hs-button,
+        .hs-form input[type="submit"] {
+            background-color: var(--accent-color);
+            color: #0d0d0d;
+            border: 1px solid var(--accent-color);
+            padding: 0.75rem 1.75rem;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hs-form .hs-button:hover,
+        .hs-form input[type="submit"]:hover {
+            background-color: var(--accent-hover);
+            border-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .hs-form .hs-error-msg,
+        .hs-form .hs-error-msgs label {
+            color: #ff6b6b;
+        }
+
         /* Footer Section */
         .footer {
             display: flex;
@@ -390,19 +476,25 @@
             When you send a message, share a brief overview of what you're trying to fix or build, which HubSpot hubs you are currently on, and a rough timeline. I typically respond to all inquiries within 1 business day.
         </p>
 
-        <section class="placeholder-grid">
-            <div class="placeholder-card">
-                <p class="placeholder-text">
-                    <strong>Prefer a form?</strong>
-                    A HubSpot contact form will be embedded here.
-                </p>
-            </div>
-            <div class="placeholder-card">
-                <p class="placeholder-text">
-                    <strong>Prefer to book directly?</strong>
-                    A HubSpot Meetings link will be embedded here.
-                </p>
-            </div>
+        <section class="contact-block">
+            <h2 class="block-title">Send a message</h2>
+            <!-- HubSpot Form Embed -->
+            <script charset="utf-8" type="text/javascript" src="//js-na2.hsforms.net/forms/embed/v2.js"></script>
+            <script>
+              hbspt.forms.create({
+                portalId: "45646869",
+                formId: "08cd6a80-8ddc-4f99-8f2c-4c6334b3f3c1",
+                region: "na2"
+              });
+            </script>
+        </section>
+
+        <section class="contact-block">
+            <h2 class="block-title">Or book a call directly</h2>
+            <!-- Start of Meetings Embed Script -->
+            <div class="meetings-iframe-container" data-src="https://meetings-na2.hubspot.com/sharoze1?embed=true"></div>
+            <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+            <!-- End of Meetings Embed Script -->
         </section>
 
         <section class="fallback-section">
