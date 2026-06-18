@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sharoze Iftikhar — Senior RevOps Consultant & AI Architect</title>
+    <title>Sharoze Iftikhar, Senior RevOps Consultant &amp; AI Architect</title>
     <meta name="description" content="Personal site of Sharoze Iftikhar. Senior RevOps Consultant, AI Solutions Architect, and HubSpot Certified Trainer.">
     <!-- GTM: paste Google Tag Manager <head> snippet here -->
     <!-- GTM: paste Google Tag Manager <body> snippet after opening <body> tag -->
@@ -11,7 +11,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -327,6 +327,248 @@
                 justify-content: center;
             }
         }
+
+        /* --- Split wrapper helper classes --- */
+        .hero-wrapper.wrapper {
+            min-height: auto;
+            padding-bottom: 2rem;
+        }
+
+        .main-wrapper.wrapper {
+            min-height: auto;
+            padding-top: 2rem;
+        }
+
+        /* --- Rotating Feature Block --- */
+        .feature-section {
+            position: relative;
+            width: 100%;
+            background-color: var(--bg-color);
+            padding: 4rem 1.5rem;
+            overflow: hidden;
+        }
+
+        @media (min-width: 992px) {
+            .feature-section {
+                padding: 6rem 1.5rem;
+            }
+        }
+
+        .feature-section .color-blob {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70vw;
+            height: 70vw;
+            max-width: 600px;
+            max-height: 600px;
+            opacity: 0.16;
+            z-index: 1;
+            filter: blur(80px);
+            animation: blobMorphAndColor 16s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .feature-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1140px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .feature-headlines {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
+
+        .headline-wrapper {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.2em;
+            height: 1.2em;
+            overflow: hidden;
+            position: relative;
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+            mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+            letter-spacing: -0.02em;
+        }
+
+        .cycling-stack {
+            display: flex;
+            flex-direction: column;
+            animation: slideStack 16s ease-in-out infinite;
+        }
+
+        .cycle-word {
+            display: block;
+            height: 1.2em;
+            line-height: 1.2em;
+            white-space: nowrap;
+        }
+
+        .static-tail {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            color: var(--text-primary);
+            margin-top: 0.5rem;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+
+        .feature-description {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 620px;
+            margin: 1.5rem auto 0;
+        }
+
+        .feature-visuals {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .image-frame {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            display: grid;
+            place-items: center;
+        }
+
+        .img-card-wrapper {
+            position: absolute;
+            width: 100%;
+            aspect-ratio: 1.4/1;
+            background: #fafafa;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            opacity: 0;
+            transform: scale(0.95);
+            z-index: 1;
+        }
+
+        .img-card-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Colors & Animations */
+        .word-amber { color: #f5a623; }
+        .word-gold { color: #f7c948; }
+        .word-orange { color: #e8743b; }
+        .word-bronze { color: #b87333; }
+
+        @keyframes slideStack {
+            0%, 20% { transform: translateY(0%); }
+            25%, 45% { transform: translateY(-20%); }
+            50%, 70% { transform: translateY(-40%); }
+            75%, 95% { transform: translateY(-60%); }
+            100% { transform: translateY(-80%); }
+        }
+
+        @keyframes blobMorphAndColor {
+            0%, 20% { background-color: #f5a623; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: translate(-50%, -50%) scale(1); }
+            25%, 45% { background-color: #f7c948; border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: translate(-50%, -50%) scale(1.1); }
+            50%, 70% { background-color: #e8743b; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: translate(-50%, -50%) scale(0.9); }
+            75%, 95% { background-color: #b87333; border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; transform: translate(-50%, -50%) scale(1.05); }
+            100% { background-color: #f5a623; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: translate(-50%, -50%) scale(1); }
+        }
+
+        .img-1 { animation: cardCycle1 16s ease-in-out infinite; }
+        .img-2 { animation: cardCycle2 16s ease-in-out infinite; }
+        .img-3 { animation: cardCycle3 16s ease-in-out infinite; }
+        .img-4 { animation: cardCycle4 16s ease-in-out infinite; }
+
+        @keyframes cardCycle1 {
+            0%, 20%, 100% { opacity: 1; transform: scale(1); z-index: 2; }
+            25%, 95% { opacity: 0; transform: scale(0.95); z-index: 1; }
+        }
+        @keyframes cardCycle2 {
+            0%, 20%, 50%, 100% { opacity: 0; transform: scale(0.95); z-index: 1; }
+            25%, 45% { opacity: 1; transform: scale(1); z-index: 2; }
+        }
+        @keyframes cardCycle3 {
+            0%, 45%, 75%, 100% { opacity: 0; transform: scale(0.95); z-index: 1; }
+            50%, 70% { opacity: 1; transform: scale(1); z-index: 2; }
+        }
+        @keyframes cardCycle4 {
+            0%, 70%, 100% { opacity: 0; transform: scale(0.95); z-index: 1; }
+            75%, 95% { opacity: 1; transform: scale(1); z-index: 2; }
+        }
+
+        /* --- Closing CTA --- */
+        .closing-cta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1.75rem;
+            width: 100%;
+        }
+
+        .cta-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 400;
+            color: var(--text-primary);
+            max-width: 600px;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        /* --- Responsive adjust --- */
+        @media (min-width: 992px) {
+            .feature-container {
+                flex-direction: row;
+                align-items: center;
+                gap: 4rem;
+            }
+            .feature-headlines {
+                align-items: flex-start;
+                text-align: left;
+            }
+            .feature-description {
+                margin: 1.5rem 0 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .cycling-stack {
+                animation: none !important;
+                transform: translateY(0) !important;
+            }
+            .color-blob {
+                animation: none !important;
+                background-color: #f5a623 !important;
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40% !important;
+                transform: translate(-50%, -50%) scale(1) !important;
+            }
+            .img-card-wrapper {
+                animation: none !important;
+            }
+            .img-1 {
+                opacity: 1 !important;
+                transform: scale(1) !important;
+                z-index: 2 !important;
+            }
+            .img-2, .img-3, .img-4 {
+                opacity: 0 !important;
+                z-index: 1 !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -340,7 +582,7 @@
             </nav>
         </div>
     </header>
-    <div class="wrapper">
+    <div class="wrapper hero-wrapper">
         <header class="hero">
             <h1 class="name">Sharoze Iftikhar</h1>
             <div class="tagline">
@@ -353,11 +595,48 @@
                 <a href="mailto:hello@sharozeiftikhar.com" class="btn btn-secondary">Get in Touch</a>
             </div>
         </header>
+    </div>
 
-        <section class="about">
-            <p>I help revenue teams build the systems and automations that make growth predictable. Specialising in HubSpot architecture, AI-assisted workflows, and the ops layer that connects them.</p>
-        </section>
+    <!-- Section 1: Rotating Feature Block -->
+    <section class="feature-section">
+        <div class="color-blob"></div>
+        <div class="feature-container">
+            <div class="feature-headlines">
+                <div class="headline-wrapper">
+                    <div class="cycling-stack">
+                        <span class="cycle-word word-amber">Implementation</span>
+                        <span class="cycle-word word-gold">Optimisation</span>
+                        <span class="cycle-word word-orange">Automation</span>
+                        <span class="cycle-word word-bronze">Strategy</span>
+                        <span class="cycle-word word-amber" aria-hidden="true">Implementation</span>
+                    </div>
+                </div>
+                <div class="static-tail">with Sharoze Iftikhar</div>
+                <p class="feature-description">
+                    I design, build, and scale the RevOps systems that make growth predictable. Full-funnel HubSpot work that bridges strategy and execution, from your GTM engine to hands-on implementation and continuous optimisation.
+                </p>
+            </div>
 
+            <div class="feature-visuals">
+                <div class="image-frame">
+                    <div class="img-card-wrapper img-1">
+                        <img src="https://chsharoze.com/wp-content/uploads/2025/09/Implementation-1.png" alt="Implementation">
+                    </div>
+                    <div class="img-card-wrapper img-2">
+                        <img src="https://chsharoze.com/wp-content/uploads/2025/09/Optimisation.png" alt="Optimisation">
+                    </div>
+                    <div class="img-card-wrapper img-3">
+                        <img src="https://chsharoze.com/wp-content/uploads/2025/09/Automation.png" alt="Automation">
+                    </div>
+                    <div class="img-card-wrapper img-4">
+                        <img src="https://chsharoze.com/wp-content/uploads/2025/09/Implementation-1.png" alt="Strategy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="wrapper main-wrapper">
         <section class="what-i-do">
             <div class="cards-grid">
                 <a href="/services/" class="card">
@@ -395,6 +674,12 @@
                     <p class="card-desc">Certified training for teams who want to use HubSpot properly, not just click around it.</p>
                 </a>
             </div>
+        </section>
+
+        <!-- Section 2: Closing CTA -->
+        <section class="closing-cta">
+            <h2 class="cta-title">Let's make your revenue operations predictable.</h2>
+            <a href="/contact/" class="btn btn-primary">Book a call</a>
         </section>
 
         <footer class="footer">

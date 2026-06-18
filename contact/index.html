@@ -284,6 +284,27 @@
             border-bottom-color: transparent;
         }
 
+        /* Contact embeds: two-up, breaks out wider than the 680px column */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: start;
+            width: min(1040px, calc(100vw - 3rem));
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 860px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                width: 100%;
+                margin-left: 0;
+                transform: none;
+            }
+        }
+
         /* Contact embed blocks */
         .contact-block {
             width: 100%;
@@ -476,26 +497,28 @@
             When you send a message, share a brief overview of what you're trying to fix or build, which HubSpot hubs you are currently on, and a rough timeline. I typically respond to all inquiries within 1 business day.
         </p>
 
-        <section class="contact-block">
-            <h2 class="block-title">Send a message</h2>
-            <!-- HubSpot Form Embed -->
-            <script charset="utf-8" type="text/javascript" src="//js-na2.hsforms.net/forms/embed/v2.js"></script>
-            <script>
-              hbspt.forms.create({
-                portalId: "45646869",
-                formId: "08cd6a80-8ddc-4f99-8f2c-4c6334b3f3c1",
-                region: "na2"
-              });
-            </script>
-        </section>
+        <div class="contact-grid">
+            <section class="contact-block">
+                <h2 class="block-title">Send a message</h2>
+                <!-- HubSpot Form Embed -->
+                <script charset="utf-8" type="text/javascript" src="//js-na2.hsforms.net/forms/embed/v2.js"></script>
+                <script>
+                  hbspt.forms.create({
+                    portalId: "45646869",
+                    formId: "08cd6a80-8ddc-4f99-8f2c-4c6334b3f3c1",
+                    region: "na2"
+                  });
+                </script>
+            </section>
 
-        <section class="contact-block">
-            <h2 class="block-title">Or book a call directly</h2>
-            <!-- Start of Meetings Embed Script -->
-            <div class="meetings-iframe-container" data-src="https://meetings-na2.hubspot.com/sharoze1?embed=true"></div>
-            <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
-            <!-- End of Meetings Embed Script -->
-        </section>
+            <section class="contact-block">
+                <h2 class="block-title">Book a call directly</h2>
+                <!-- Start of Meetings Embed Script -->
+                <div class="meetings-iframe-container" data-src="https://meetings-na2.hubspot.com/sharoze1?embed=true"></div>
+                <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+                <!-- End of Meetings Embed Script -->
+            </section>
+        </div>
 
         <section class="fallback-section">
             <h2 class="fallback-title">Alternative Contact Channels</h2>
