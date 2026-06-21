@@ -456,12 +456,67 @@
                 justify-content: center;
             }
         }
+
+        /* HubSpot Nav Badge styles */
+        .nav-brand-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+                .nav-badge {
+            display: inline-flex;
+            align-items: center;
+            font-size: 11px;
+            font-weight: 600;
+            line-height: 1;
+            letter-spacing: 0.02em;
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 0.3rem 0.6rem;
+            border: 1px solid var(--accent-color);
+            border-radius: 999px;
+            white-space: nowrap;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        .nav-badge::before {
+            content: "\2713";
+            margin-right: 0.3rem;
+            font-weight: 700;
+        }
+        .nav-badge:hover {
+            background-color: var(--accent-color);
+            color: #0d0d0d;
+        }
+        @media (max-width: 640px) {
+            .nav-container {
+                padding: 1rem 0.75rem;
+            }
+            .nav-brand-group {
+                gap: 0.5rem;
+            }
+            .nav-links {
+                gap: 0.75rem;
+            }
+            .nav-links a {
+                font-size: 14px;
+            }
+            .nav-brand {
+                font-size: 14px;
+            }
+                        .nav-badge {
+                font-size: 10px;
+                padding: 0.25rem 0.5rem;
+            }
+        }
     </style>
 </head>
 <body>
     <header class="site-nav">
         <div class="nav-container">
-            <a href="/" class="nav-brand">Sharoze Iftikhar</a>
+            <div class="nav-brand-group">
+                <a href="/" class="nav-brand">Sharoze Iftikhar</a>
+                <a href="https://app.hubspot.com/academy/achievements/0nmg8kpn/en/1/sharoze-iftikhar/hubspot-certified-trainer" target="_blank" rel="noopener" class="nav-badge" aria-label="HubSpot Certified Trainer" title="HubSpot Certified Trainer">HubSpot Certified Trainer</a>
+            </div>
             <nav class="nav-links">
                 <a href="/services/" class="active">Services</a>
                 <a href="/about/">About</a>
