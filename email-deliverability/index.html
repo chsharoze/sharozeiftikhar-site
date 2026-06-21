@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HubSpot RevOps Consultant &amp; CRM Architecture | Sharoze Iftikhar</title>
-    <meta name="description" content="CRM design, pipeline structure, and reporting that makes HubSpot report the truth. RevOps architecture for B2B revenue teams.">
-    <link rel="canonical" href="https://sharozeiftikhar.com/revops-architecture/">
+    <title>Email Deliverability Audits: DMARC, DKIM, SPF | Sharoze Iftikhar</title>
+    <meta name="description" content="Technical email deliverability for HubSpot senders: DMARC, DKIM, and SPF audits, domain reputation, and list hygiene so your email lands in the inbox.">
+    <link rel="canonical" href="https://sharozeiftikhar.com/email-deliverability/">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="HubSpot RevOps Consultant &amp; CRM Architecture | Sharoze Iftikhar">
-    <meta property="og:description" content="CRM design, pipeline structure, and reporting that makes HubSpot report the truth. RevOps architecture for B2B revenue teams.">
-    <meta property="og:url" content="https://sharozeiftikhar.com/revops-architecture/">
+    <meta property="og:title" content="Email Deliverability Audits: DMARC, DKIM, SPF | Sharoze Iftikhar">
+    <meta property="og:description" content="Technical email deliverability for HubSpot senders: DMARC, DKIM, and SPF audits, domain reputation, and list hygiene so your email lands in the inbox.">
+    <meta property="og:url" content="https://sharozeiftikhar.com/email-deliverability/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Sharoze Iftikhar">
 
@@ -34,9 +34,9 @@
         },
         {
           "@type": "Service",
-          "@id": "https://sharozeiftikhar.com/revops-architecture/#service",
-          "name": "HubSpot RevOps Architecture & CRM Design",
-          "serviceType": "RevOps Architecture",
+          "@id": "https://sharozeiftikhar.com/email-deliverability/#service",
+          "name": "Email Deliverability Audits and Remediation",
+          "serviceType": "Email Deliverability",
           "provider": {
             "@id": "https://sharozeiftikhar.com/#person"
           },
@@ -44,21 +44,21 @@
             "@type": "Country",
             "name": "Worldwide"
           },
-          "description": "CRM design, pipeline structure, and reporting that makes HubSpot report the truth. RevOps architecture for B2B revenue teams."
+          "description": "DMARC, DKIM, and SPF audits, domain reputation work, and list hygiene for HubSpot senders so email reaches the inbox."
         },
         {
           "@type": "WebPage",
-          "@id": "https://sharozeiftikhar.com/revops-architecture/#webpage",
-          "url": "https://sharozeiftikhar.com/revops-architecture/",
-          "name": "HubSpot RevOps Consultant & CRM Architecture | Sharoze Iftikhar",
-          "description": "CRM design, pipeline structure, and reporting that makes HubSpot report the truth. RevOps architecture for B2B revenue teams.",
+          "@id": "https://sharozeiftikhar.com/email-deliverability/#webpage",
+          "url": "https://sharozeiftikhar.com/email-deliverability/",
+          "name": "Email Deliverability Audits: DMARC, DKIM, SPF | Sharoze Iftikhar",
+          "description": "Technical email deliverability for HubSpot senders: DMARC, DKIM, and SPF audits, domain reputation, and list hygiene so your email lands in the inbox.",
           "breadcrumb": {
-            "@id": "https://sharozeiftikhar.com/revops-architecture/#breadcrumb"
+            "@id": "https://sharozeiftikhar.com/email-deliverability/#breadcrumb"
           }
         },
         {
           "@type": "BreadcrumbList",
-          "@id": "https://sharozeiftikhar.com/revops-architecture/#breadcrumb",
+          "@id": "https://sharozeiftikhar.com/email-deliverability/#breadcrumb",
           "itemListElement": [
             {
               "@type": "ListItem",
@@ -69,37 +69,37 @@
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "RevOps Architecture",
-              "item": "https://sharozeiftikhar.com/revops-architecture/"
+              "name": "Email Deliverability",
+              "item": "https://sharozeiftikhar.com/email-deliverability/"
             }
           ]
         },
         {
           "@type": "FAQPage",
-          "@id": "https://sharozeiftikhar.com/revops-architecture/#faq",
+          "@id": "https://sharozeiftikhar.com/email-deliverability/#faq",
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "What does a RevOps audit involve?",
+              "name": "What is the difference between SPF, DKIM, and DMARC?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "An audit involves a thorough assessment of your current CRM data model, pipeline structure, workflow architecture, and reporting gaps. The findings are delivered as a documented findings and recommendations report outlining exactly where issues lie and how to fix them."
+                "text": "SPF lists which servers are allowed to send for your domain. DKIM cryptographically signs your mail so receivers can verify it was not tampered with. DMARC ties the two together, tells receivers what to do when a message fails, and sends you reports. You need all three aligned for reliable inbox placement, and DMARC is what turns the other two from optional into enforced."
               }
             },
             {
               "@type": "Question",
-              "name": "How long does a RevOps engagement take?",
+              "name": "Why are our HubSpot emails landing in spam?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "The timeline depends entirely on the scope. A focused audit typically takes 1 to 2 weeks, while a full CRM rebuild and custom implementation takes 4 to 8 weeks."
+                "text": "Usually a mix of authentication gaps and reputation damage. Missing or misaligned DMARC, an unverified sending domain, sending to stale or purchased lists, and high bounce or complaint rates all push you toward the spam folder. The fix is to authenticate properly, clean the list, and rebuild reputation by sending to engaged contacts first."
               }
             },
             {
               "@type": "Question",
-              "name": "Do you work with HubSpot only?",
+              "name": "Does list hygiene really affect deliverability?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, I work exclusively with HubSpot. I am a deep HubSpot specialist rather than a generalist CRM consultant, ensuring you get the absolute most out of the platform."
+                "text": "Yes, more than most teams expect. Mailbox providers watch how recipients react to your mail. Sending to dead addresses, spam traps, and unengaged contacts raises bounces and complaints, which lowers your sender reputation and hurts delivery for everyone on the list. Suppressing the wrong contacts is one of the highest-leverage deliverability fixes there is."
               }
             }
           ]
@@ -548,7 +548,7 @@
                 <a href="https://app.hubspot.com/academy/achievements/0nmg8kpn/en/1/sharoze-iftikhar/hubspot-certified-trainer" target="_blank" rel="noopener" class="nav-badge" aria-label="HubSpot Certified Trainer" title="HubSpot Certified Trainer">HubSpot Certified Trainer</a>
             </div>
             <nav class="nav-links">
-                <a href="/services/" class="active">Services</a>
+                <a href="/services/">Services</a>
                 <a href="/about/">About</a>
                 <a href="/contact/">Contact</a>
             </nav>
@@ -557,33 +557,33 @@
 
     <div class="wrapper">
         <main class="hero">
-            <h1 class="title">HubSpot RevOps Architecture &amp; CRM Design</h1>
-            <p class="subhead">Pipeline structure, reporting, and data model design that makes HubSpot actually report the truth.</p>
+            <h1 class="title">Email Deliverability Audits</h1>
+            <p class="subhead">DMARC, DKIM, and SPF done right, plus the list hygiene and reputation work that decides whether your HubSpot email reaches the inbox at all.</p>
         </main>
 
         <section class="intro">
-            <p class="intro-p">The problem with most CRM setups is they don't reflect the real sales motion, resulting in broken attribution and reports that nobody in leadership trusts. When object relationships are poorly mapped and lifecycle syncing is broken, manual workarounds multiply and data integrity deteriorates. I design and build clean HubSpot database architectures that map directly to your actual business operations, ensuring every stage, property, and calculation is clean and correct.</p>
+            <p class="intro-p">You can write the best email in the world and it will not matter if mailbox providers quietly route it to spam. Deliverability is a technical problem first and a content problem second: authentication has to be correct and aligned, your sending domain has to have a reputation worth trusting, and you have to stop mailing the contacts who drag that reputation down. I audit all three, fix what is broken, and give you a sending setup that holds up as you scale.</p>
         </section>
 
         <section class="services-list">
             <div class="service-item">
-                <h2 class="service-title">CRM &amp; Data Model Design</h2>
-                <p class="service-text">We map and build custom object relationships, property architectures, and association schemas that reflect how deals actually move. By designing a clean data schema from the start, we eliminate duplicate entries, manual workarounds, and broken data relationships. The outcome is a scalable HubSpot foundation that handles complex transactional models without breaking.</p>
+                <h2 class="service-title">DMARC, DKIM, and SPF Authentication</h2>
+                <p class="service-text">I audit your DNS records and fix the full authentication stack: SPF to declare authorised senders, DKIM to sign your mail, and DMARC to enforce alignment and report on abuse. I move you from no policy or a permissive one toward enforcement safely, watching the aggregate reports so legitimate mail never gets caught in the tightening.</p>
             </div>
 
             <div class="service-item">
-                <h2 class="service-title">Pipeline &amp; Lifecycle Architecture</h2>
-                <p class="service-text">We define deal and pipeline stages with objective exit criteria so your sales velocity and forecasting metrics mean something. Lifecycle stages are programmatically synced across objects so that marketing and sales handoff logic doesn't leak. This structured flow ensures complete visibility and consistency across the entire customer lifecycle.</p>
+                <h2 class="service-title">Sending Domain and Reputation</h2>
+                <p class="service-text">I verify your sending domain in HubSpot, separate transactional from marketing sending where it helps, and structure subdomains so a marketing reputation problem cannot poison your corporate email. Where reputation is already damaged, I run a structured warm-up that rebuilds trust by mailing your most engaged contacts first.</p>
             </div>
 
             <div class="service-item">
-                <h2 class="service-title">Reporting &amp; Attribution</h2>
-                <p class="service-text">We design and build custom dashboards that answer real business questions and show your actual pipeline health. Attribution models are aligned to how your revenue happened, not just basic default rules. You get clear, trusted reports that prove marketing ROI and guide strategic revenue decisions.</p>
+                <h2 class="service-title">List Hygiene and Suppression</h2>
+                <p class="service-text">Bad lists are the fastest way to wreck deliverability. I identify hard bounces, role addresses, likely spam traps, and chronically unengaged contacts, then build the suppression and re-engagement logic to stop mailing them. Sending less, to people who actually open, lifts placement for the whole list.</p>
             </div>
 
             <div class="service-item">
-                <h2 class="service-title">Workflow &amp; Automation</h2>
-                <p class="service-text">We engineer HubSpot workflow architectures that run smoothly and silently in the background without needing constant babysitting. By incorporating custom coded actions, we automate complex calculations, assignments, and API integrations with strict execution guardrails. This eliminates database errors, saves time, and keeps your operational data pristine.</p>
+                <h2 class="service-title">Monitoring That Catches Drift</h2>
+                <p class="service-text">Deliverability is not a one-time fix. I set up DMARC aggregate reporting and bounce and complaint tracking so a new tool sending unauthenticated mail, or a campaign tanking your complaint rate, shows up as a signal you can act on instead of a slow, invisible decline.</p>
             </div>
         </section>
 
@@ -594,21 +594,21 @@
                     <span class="step-num">1</span>
                     <div class="step-content">
                         <h3 class="step-title">Audit</h3>
-                        <p class="step-text">We analyze your current CRM architecture, pipeline setups, workflows, and integrations to understand what exists and identify exactly what is broken.</p>
+                        <p class="step-text">We check your SPF, DKIM, and DMARC records, your sending domains, and your list health, and document exactly where placement is leaking.</p>
                     </div>
                 </li>
                 <li class="step-item">
                     <span class="step-num">2</span>
                     <div class="step-content">
-                        <h3 class="step-title">Design</h3>
-                        <p class="step-text">We map the right data model, pipeline structures, and lifecycle logic tailored specifically to how your business actually operates.</p>
+                        <h3 class="step-title">Remediate</h3>
+                        <p class="step-text">We fix the DNS records, verify domains, set suppression logic, and move DMARC toward enforcement without breaking legitimate mail.</p>
                     </div>
                 </li>
                 <li class="step-item">
                     <span class="step-num">3</span>
                     <div class="step-content">
-                        <h3 class="step-title">Build</h3>
-                        <p class="step-text">We build the architecture in HubSpot, run rigorous QA, and deliver complete documentation explaining what was built and why.</p>
+                        <h3 class="step-title">Monitor</h3>
+                        <p class="step-text">We stand up reporting so authentication failures, reputation drops, and list problems surface early, and hand over a runbook your team can maintain.</p>
                     </div>
                 </li>
             </ol>
@@ -618,25 +618,26 @@
             <h2 class="section-title">Frequently Asked Questions</h2>
             <div class="faq-list">
                 <div class="faq-item">
-                    <h3 class="faq-question">What does a RevOps audit involve?</h3>
-                    <p class="faq-answer">An audit involves a thorough assessment of your current CRM data model, pipeline structure, workflow architecture, and reporting gaps. The findings are delivered as a documented findings and recommendations report outlining exactly where issues lie and how to fix them.</p>
+                    <h3 class="faq-question">What is the difference between SPF, DKIM, and DMARC?</h3>
+                    <p class="faq-answer">SPF lists which servers are allowed to send for your domain. DKIM cryptographically signs your mail so receivers can verify it was not tampered with. DMARC ties the two together, tells receivers what to do when a message fails, and sends you reports. You need all three aligned for reliable inbox placement, and DMARC is what turns the other two from optional into enforced.</p>
                 </div>
                 <div class="faq-item">
-                    <h3 class="faq-question">How long does a RevOps engagement take?</h3>
-                    <p class="faq-answer">The timeline depends entirely on the scope. A focused audit typically takes 1 to 2 weeks, while a full CRM rebuild and custom implementation takes 4 to 8 weeks.</p>
+                    <h3 class="faq-question">Why are our HubSpot emails landing in spam?</h3>
+                    <p class="faq-answer">Usually a mix of authentication gaps and reputation damage. Missing or misaligned DMARC, an unverified sending domain, sending to stale or purchased lists, and high bounce or complaint rates all push you toward the spam folder. The fix is to authenticate properly, clean the list, and rebuild reputation by sending to engaged contacts first.</p>
                 </div>
                 <div class="faq-item">
-                    <h3 class="faq-question">Do you work with HubSpot only?</h3>
-                    <p class="faq-answer">Yes, I work exclusively with HubSpot. I am a deep HubSpot specialist rather than a generalist CRM consultant, ensuring you get the absolute most out of the platform.</p>
+                    <h3 class="faq-question">Does list hygiene really affect deliverability?</h3>
+                    <p class="faq-answer">Yes, more than most teams expect. Mailbox providers watch how recipients react to your mail. Sending to dead addresses, spam traps, and unengaged contacts raises bounces and complaints, which lowers your sender reputation and hurts delivery for everyone on the list. Suppressing the wrong contacts is one of the highest-leverage deliverability fixes there is.</p>
                 </div>
             </div>
         </section>
 
         <section class="cta-section">
-            <a href="/contact/" class="btn btn-primary">Book a RevOps audit</a>
+            <a href="/contact/" class="btn btn-primary">Book a deliverability audit</a>
             <div class="cta-links">
-                <a href="/ai-workflow-automation/" class="cta-secondary-link">AI Workflow Automation &rarr;</a>
-                <a href="/hubspot-training/" class="cta-secondary-link">HubSpot Training &rarr;</a>
+                <a href="/revops-architecture/" class="cta-secondary-link">RevOps Architecture &rarr;</a>
+                <a href="/services/" class="cta-secondary-link">All Services &rarr;</a>
+                <a href="/about/" class="cta-secondary-link">About Sharoze &rarr;</a>
             </div>
         </section>
 

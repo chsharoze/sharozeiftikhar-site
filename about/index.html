@@ -33,22 +33,37 @@
           "@type": "Person",
           "@id": "https://sharozeiftikhar.com/#person",
           "name": "Sharoze Iftikhar",
+          "alternateName": ["M. Sharoze Iftikhar", "Muhammad Sharoze Iftikhar"],
           "jobTitle": [
             "Senior RevOps Consultant",
             "AI Solutions Architect",
             "HubSpot Certified Trainer"
           ],
           "url": "https://sharozeiftikhar.com/",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Islamabad",
+            "addressCountry": "PK"
+          },
+          "worksFor": { "@id": "https://sharozeiftikhar.com/#organization" },
           "sameAs": [
             "https://www.linkedin.com/in/sharoze/",
+            "https://medium.com/@sharoze.iftikhar",
+            "https://github.com/chsharoze",
+            "https://x.com/chsharoze",
             "https://revopsdev.com",
-            "https://networkdays.io"
+            "https://networkdays.io",
+            "https://chsharoze.com",
+            "https://strafasia.com/authors/m-sharoze-iftikhar-gc7c219c0"
           ],
           "knowsAbout": [
             "RevOps",
             "HubSpot",
             "CRM architecture",
-            "AI workflow automation"
+            "AI workflow automation",
+            "multi-touch attribution",
+            "email deliverability",
+            "nuclear deterrence policy research"
           ],
           "hasCredential": {
             "@type": "EducationalOccupationalCredential",
@@ -90,6 +105,13 @@
               "item": "https://sharozeiftikhar.com/about/"
             }
           ]
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://sharozeiftikhar.com/#organization",
+          "name": "RevOpsDev",
+          "url": "https://revopsdev.com",
+          "founder": { "@id": "https://sharozeiftikhar.com/#person" }
         }
       ]
     }
@@ -221,6 +243,16 @@
             font-size: 16px;
             color: var(--text-secondary);
             line-height: 1.7;
+        }
+
+        .bio h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 28px;
+            font-weight: 400;
+            color: var(--text-primary);
+            border-top: 1px solid var(--border-color);
+            padding-top: 2.5rem;
+            margin-top: 1rem;
         }
 
         .bio strong {
@@ -475,6 +507,12 @@
             <p>My approach is minimal and deliberate. I'd rather ship one thing that works than five things that demo well and break in production. Every tool, integration, and dependency has to earn its place. When the answer is to do less, I do less. That discipline carries into how I build AI systems too - for knowledge retrieval I favour hybrid CAG over naive RAG, because grounding an agent in structured, queryable truth beats stuffing it with fuzzy chunks and hoping the embeddings line up. Correct beats clever, every time.</p>
 
             <p>I work with clients worldwide - across time zones, mostly async, always with a bias toward systems that keep running whether or not I'm in the room. If you're a revenue team trying to make HubSpot do more, or you want AI automation that's actually wired into how your business operates rather than bolted on, that's the work I do.</p>
+
+            <h2>From policy research to RevOps architecture</h2>
+
+            <p>Before the RevOps and AI work, I was a researcher. Around 2019 I published policy and security analysis as a Research Fellow at <strong>SASSI University</strong> in Islamabad, and on <strong>Strafasia</strong>, writing on nuclear deterrence and strategic stability in South Asia. Those pieces ran under the bylines <strong>M. Sharoze Iftikhar</strong> and <strong>Muhammad Sharoze Iftikhar</strong>: same person, same chsharoze handle I still use on GitHub, X, and email. You can read that work on my <a href="https://strafasia.com/authors/m-sharoze-iftikhar-gc7c219c0" target="_blank" rel="noopener noreferrer">Strafasia author archive</a>, including pieces like <a href="https://strafasia.com/indias-delusional-nuclear-strategy/" target="_blank" rel="noopener noreferrer">India's Delusional Nuclear Strategy</a>.</p>
+
+            <p>It is not as much of a leap as it looks. My training is in Public Administration, at NUST's School of Social Sciences and Humanities, and policy research is fundamentally about modelling complex systems, reasoning under incomplete information, and being precise about what a piece of evidence does and does not support. That is the same discipline I now apply to revenue systems: map how the thing actually works, design for the real constraints, and refuse to claim more than the data shows. The subject changed from deterrence to pipelines. The way of thinking did not.</p>
         </section>
 
         <section class="proof-cards">
