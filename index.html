@@ -102,6 +102,18 @@
           "name": "RevOpsDev",
           "url": "https://revopsdev.com",
           "founder": { "@id": "https://sharozeiftikhar.com/#person" }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://sharozeiftikhar.com/#faq",
+          "mainEntity": [
+            {"@type":"Question","name":"Can you fix HubSpot original source attribution?","acceptedAnswer":{"@type":"Answer","text":"Yes. HubSpot's Original Source quietly gets overwritten by integrations, imports, and re-identification, which corrupts channel reporting. I capture true first-touch source into protected, locked properties so attribution stops drifting."}},
+            {"@type":"Question","name":"How do you handle multi-touch attribution in HubSpot?","acceptedAnswer":{"@type":"Answer","text":"First-touch, linear, and full-path models built on a clean data model, so credit matches how revenue actually happened."}},
+            {"@type":"Question","name":"Can you unmerge HubSpot records?","acceptedAnswer":{"@type":"Answer","text":"Yes. I have identified and unmerged thousands of incorrectly merged contacts and companies using backend API work to restore database integrity without data loss."}},
+            {"@type":"Question","name":"How do you fix email deliverability?","acceptedAnswer":{"@type":"Answer","text":"DMARC, DKIM, and SPF audits, sending-domain reputation, and list hygiene so your email reaches the inbox."}},
+            {"@type":"Question","name":"Do you build custom-coded workflow actions?","acceptedAnswer":{"@type":"Answer","text":"Yes, when native workflows hit their limits: production-grade custom-coded actions and API integrations with guardrails, logging, and safe rollback."}},
+            {"@type":"Question","name":"Are you a HubSpot Certified Trainer?","acceptedAnswer":{"@type":"Answer","text":"Yes, with 26+ HubSpot certifications. I build the platform, then train teams on what I build."}}
+          ]
         }
       ]
     }
@@ -728,6 +740,36 @@
                 padding: 0.25rem 0.5rem;
             }
         }
+
+        /* Homepage content sections (impact, capabilities, FAQ) */
+        .section-block { width: 100%; }
+        .section-block + .section-block { margin-top: 3.5rem; }
+        .section-head { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.75rem; }
+        .section-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-color); }
+        .section-title { font-family: 'DM Serif Display', serif; font-size: 32px; font-weight: 400; color: var(--text-primary); line-height: 1.15; }
+        .section-sub { font-size: 16px; color: var(--text-secondary); line-height: 1.6; }
+        .impact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+        .impact-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+        .impact-stat { font-family: 'DM Serif Display', serif; font-size: 26px; color: var(--accent-color); line-height: 1.1; }
+        .impact-text { font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
+        .cap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+        .cap-col { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; padding: 1.5rem; }
+        .cap-col h3 { font-size: 17px; font-weight: 600; color: var(--text-primary); margin-bottom: 0.75rem; }
+        .cap-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+        .cap-col li { font-size: 14px; color: var(--text-secondary); line-height: 1.5; padding-left: 1.1rem; position: relative; }
+        .cap-col li::before { content: "\2192"; position: absolute; left: 0; color: var(--accent-color); }
+        .home-faq { display: flex; flex-direction: column; gap: 1rem; }
+        .home-faq details { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem; }
+        .home-faq summary { font-size: 16px; font-weight: 600; color: var(--text-primary); cursor: pointer; list-style: none; }
+        .home-faq summary::-webkit-details-marker { display: none; }
+        .home-faq summary::after { content: "+"; float: right; color: var(--accent-color); font-weight: 700; }
+        .home-faq details[open] summary::after { content: "\2212"; }
+        .home-faq .faq-a { font-size: 15px; color: var(--text-secondary); line-height: 1.65; margin-top: 0.75rem; }
+        .home-faq .faq-a a { color: var(--accent-color); text-decoration: none; border-bottom: 1px dotted var(--accent-color); }
+        @media (max-width: 640px) {
+            .impact-grid, .cap-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 26px; }
+        }
     </style>
 </head>
 <body>
@@ -858,6 +900,72 @@
                     <h2 class="card-title">HubSpot Certified Trainer</h2>
                     <p class="card-desc">Official HubSpot Certified Trainer who builds the platform, then trains your team on it.</p>
                 </a>
+            </div>
+        </section>
+
+        <!-- Proven impact -->
+        <section class="section-block">
+            <div class="section-head">
+                <span class="section-eyebrow">Proven impact</span>
+                <h2 class="section-title">Systems that move real numbers</h2>
+                <p class="section-sub">A selection of outcomes from recent RevOps and HubSpot engagements. Clients anonymized.</p>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-card"><span class="impact-stat">120K+ / 400K+</span><p class="impact-text">Companies and contacts consolidated and transformed in a three-company post-merger CRM migration, without data loss.</p></div>
+                <div class="impact-card"><span class="impact-stat">8,000+ records</span><p class="impact-text">Incorrectly merged contacts and companies identified and unmerged to restore database integrity at scale.</p></div>
+                <div class="impact-card"><span class="impact-stat">Hours to minutes</span><p class="impact-text">Average lead response time cut with shift-based assignment and automated routing built directly in HubSpot.</p></div>
+                <div class="impact-card"><span class="impact-stat">13+ portals</span><p class="impact-text">Custom-coded workflow action systems architected and deployed across client portals running under heavy load.</p></div>
+            </div>
+        </section>
+
+        <!-- AI & automation capabilities -->
+        <section class="section-block">
+            <div class="section-head">
+                <span class="section-eyebrow">AI &amp; automation</span>
+                <h2 class="section-title">Smarter HubSpot, built on your stack</h2>
+                <p class="section-sub">Moving past administration to autonomous, revenue-generating systems.</p>
+            </div>
+            <div class="cap-grid">
+                <div class="cap-col">
+                    <h3>AI agents &amp; RAG</h3>
+                    <ul>
+                        <li>Zero-hallucination RAG agents for lead qualification and customer success</li>
+                        <li>Contextual record enrichment and deal updates</li>
+                        <li>MCP-based, grounded in your real CRM data</li>
+                    </ul>
+                </div>
+                <div class="cap-col">
+                    <h3>Programmable workflows</h3>
+                    <ul>
+                        <li>Custom-coded workflow actions in Python and Node.js</li>
+                        <li>n8n orchestration for cross-platform data sync</li>
+                        <li>Guardrails, logging, and safe rollback built in</li>
+                    </ul>
+                </div>
+                <div class="cap-col">
+                    <h3>Solutions architecture</h3>
+                    <ul>
+                        <li>CRM re-architecture, data modeling, and enterprise migrations</li>
+                        <li>Stripe and Shopify revenue integrations</li>
+                        <li>360-degree RevOps with C-suite reporting</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section-block">
+            <div class="section-head">
+                <span class="section-eyebrow">FAQ</span>
+                <h2 class="section-title">Common questions</h2>
+            </div>
+            <div class="home-faq">
+                <details><summary>Can you fix HubSpot original source attribution?</summary><p class="faq-a">Yes. HubSpot's Original Source quietly gets overwritten by integrations, imports, and re-identification, which corrupts your channel reporting. I capture true first-touch source into protected properties and lock them so attribution stops drifting. Full method: <a href="/hubspot-source-attribution-fix/">the source attribution fix</a>.</p></details>
+                <details><summary>How do you handle multi-touch attribution in HubSpot?</summary><p class="faq-a">First-touch, linear, and full-path models built on a clean data model, so credit matches how revenue actually happened. See <a href="/multi-touch-attribution/">multi-touch attribution in HubSpot</a>.</p></details>
+                <details><summary>Can you unmerge HubSpot records?</summary><p class="faq-a">Yes. I have identified and unmerged thousands of incorrectly merged contacts and companies using backend API work to restore database integrity without data loss.</p></details>
+                <details><summary>How do you fix email deliverability?</summary><p class="faq-a">DMARC, DKIM, and SPF audits, sending-domain reputation, and list hygiene so your email reaches the inbox. See <a href="/email-deliverability/">email deliverability</a>.</p></details>
+                <details><summary>Do you build custom-coded workflow actions?</summary><p class="faq-a">Yes, when native workflows hit their limits: production-grade custom-coded actions and API integrations with guardrails. See <a href="/revops-architecture/">RevOps architecture</a>.</p></details>
+                <details><summary>Are you a HubSpot Certified Trainer?</summary><p class="faq-a">Yes, with 26+ HubSpot certifications. I build the platform, then train teams on what I build. See <a href="/hubspot-trainer/">HubSpot Certified Trainer</a>.</p></details>
             </div>
         </section>
 
