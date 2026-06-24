@@ -119,7 +119,7 @@
           "mainEntity": [
             {"@type":"Question","name":"Can you fix HubSpot original source attribution?","acceptedAnswer":{"@type":"Answer","text":"Yes. HubSpot's Original Source quietly gets overwritten by integrations, imports, and re-identification, which corrupts channel reporting. I capture true first-touch source into protected, locked properties so attribution stops drifting."}},
             {"@type":"Question","name":"How do you handle multi-touch attribution in HubSpot?","acceptedAnswer":{"@type":"Answer","text":"First-touch, linear, and full-path models built on a clean data model, so credit matches how revenue actually happened."}},
-            {"@type":"Question","name":"Can you unmerge HubSpot records?","acceptedAnswer":{"@type":"Answer","text":"Yes. I have identified and unmerged thousands of incorrectly merged contacts and companies using backend API work to restore database integrity without data loss."}},
+            {"@type":"Question","name":"Can you unmerge HubSpot records?","acceptedAnswer":{"@type":"Answer","text":"Yes. I have identified and unmerged thousands of incorrectly merged contacts and companies using backend API work to restore database integrity with careful validation and rollback safeguards."}},
             {"@type":"Question","name":"How do you fix email deliverability?","acceptedAnswer":{"@type":"Answer","text":"DMARC, DKIM, and SPF audits, sending-domain reputation, and list hygiene so your email reaches the inbox."}},
             {"@type":"Question","name":"Do you build custom-coded workflow actions?","acceptedAnswer":{"@type":"Answer","text":"Yes, when native workflows hit their limits: production-grade custom-coded actions and API integrations with guardrails, logging, and safe rollback."}},
             {"@type":"Question","name":"Are you a HubSpot Certified Trainer?","acceptedAnswer":{"@type":"Answer","text":"Yes, with 26+ HubSpot certifications. I build the platform, then train teams on what I build."}}
@@ -921,7 +921,7 @@
                 <p class="section-sub">A selection of outcomes from recent RevOps and HubSpot engagements. Clients anonymized.</p>
             </div>
             <div class="impact-grid">
-                <div class="impact-card"><span class="impact-stat">120K+ / 400K+</span><p class="impact-text">Companies and contacts consolidated and transformed in a three-company post-merger CRM migration, without data loss.</p></div>
+                <div class="impact-card"><span class="impact-stat">120K+ / 400K+</span><p class="impact-text">Companies and contacts consolidated and transformed in a three-company post-merger CRM migration, with data integrity preserved.</p></div>
                 <div class="impact-card"><span class="impact-stat">8,000+ records</span><p class="impact-text">Incorrectly merged contacts and companies identified and unmerged to restore database integrity at scale.</p></div>
                 <div class="impact-card"><span class="impact-stat">Hours to minutes</span><p class="impact-text">Average lead response time cut with shift-based assignment and automated routing built directly in HubSpot.</p></div>
                 <div class="impact-card"><span class="impact-stat">13+ portals</span><p class="impact-text">Custom-coded workflow action systems architected and deployed across client portals running under heavy load.</p></div>
@@ -939,7 +939,7 @@
                 <div class="cap-col">
                     <h3>AI agents &amp; RAG</h3>
                     <ul>
-                        <li>Grounded RAG agents for lead qualification and customer success, with hallucinations kept close to none</li>
+                        <li>Grounded RAG agents for lead qualification and customer success, with hallucinations minimized through CRM grounding</li>
                         <li>Contextual record enrichment and deal updates</li>
                         <li>MCP-based, grounded in your real CRM data</li>
                     </ul>
@@ -972,7 +972,7 @@
             <div class="home-faq">
                 <details><summary>Can you fix HubSpot original source attribution?</summary><p class="faq-a">Yes. HubSpot's Original Source quietly gets overwritten by integrations, imports, and re-identification, which corrupts your channel reporting. I capture true first-touch source into protected properties and lock them so attribution stops drifting. Full method: <a href="/hubspot-source-attribution-fix/">the source attribution fix</a>.</p></details>
                 <details><summary>How do you handle multi-touch attribution in HubSpot?</summary><p class="faq-a">First-touch, linear, and full-path models built on a clean data model, so credit matches how revenue actually happened. See <a href="/multi-touch-attribution/">multi-touch attribution in HubSpot</a>.</p></details>
-                <details><summary>Can you unmerge HubSpot records?</summary><p class="faq-a">Yes. I have identified and unmerged thousands of incorrectly merged contacts and companies using backend API work to restore database integrity without data loss.</p></details>
+                <details><summary>Can you unmerge HubSpot records?</summary><p class="faq-a">Yes. I have identified and unmerged thousands of incorrectly merged contacts and companies using backend API work to restore database integrity with careful validation and rollback safeguards.</p></details>
                 <details><summary>How do you fix email deliverability?</summary><p class="faq-a">DMARC, DKIM, and SPF audits, sending-domain reputation, and list hygiene so your email reaches the inbox. See <a href="/email-deliverability/">email deliverability</a>.</p></details>
                 <details><summary>Do you build custom-coded workflow actions?</summary><p class="faq-a">Yes, when native workflows hit their limits: production-grade custom-coded actions and API integrations with guardrails. See <a href="/revops-architecture/">RevOps architecture</a>.</p></details>
                 <details><summary>Are you a HubSpot Certified Trainer?</summary><p class="faq-a">Yes, with 26+ HubSpot certifications. I build the platform, then train teams on what I build. See <a href="/hubspot-trainer/">HubSpot Certified Trainer</a>.</p></details>
