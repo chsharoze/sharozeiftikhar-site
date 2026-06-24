@@ -1,0 +1,6 @@
+# Internal source-of-truth + tooling - NEVER publish to the public Pages site.
+# Live copies live in the working dir (/Users/sharoze/Downloads/Sharoze Iftikhar/) only.
+data/
+docs/
+tools/
+.DS_Store
