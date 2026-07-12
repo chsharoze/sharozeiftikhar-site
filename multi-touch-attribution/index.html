@@ -108,7 +108,7 @@
               "name": "Why does HubSpot attribution show numbers we do not trust?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Almost always it is the data model underneath, not the report. Broken contact-to-deal associations, inconsistent lifecycle syncing, untracked offline touches, and original-source values that get overwritten all corrupt attribution before the model runs. Fixing attribution starts with fixing the plumbing the model reads from."
+                "text": "Almost always it is the data model underneath, not the report. Broken contact-to-deal associations, inconsistent lifecycle syncing, untracked offline touches, and website contacts stuck in Offline Sources because they were created outside HubSpot forms all corrupt attribution before the model runs. Fixing attribution starts with fixing the plumbing the model reads from."
               }
             },
             {
@@ -582,13 +582,13 @@
         </main>
 
         <section class="intro">
-            <p class="intro-p">Most attribution arguments are really data-model arguments in disguise. When marketing and sales disagree about what drove a deal, the root cause is usually that the CRM cannot answer the question cleanly: touches are missing, associations are broken, or the original source got overwritten the first time someone re-submitted a form. I build attribution in HubSpot from the plumbing up, so the model runs on data that is actually trustworthy, and the report becomes something leadership stops second-guessing.</p>
+            <p class="intro-p">Most attribution arguments are really data-model arguments in disguise. When marketing and sales disagree about what drove a deal, the root cause is usually that the CRM cannot answer the question cleanly: touches are missing, associations are broken, or half the website leads sit in Offline Sources because they were created outside HubSpot forms. I build attribution in HubSpot from the plumbing up, so the model runs on data that is actually trustworthy, and the report becomes something leadership stops second-guessing.</p>
         </section>
 
         <section class="services-list">
             <div class="service-item">
                 <h2 class="service-title">First-Touch and Last-Touch</h2>
-                <p class="service-text">First-touch tells you what creates demand. Last-touch tells you what closes it. Both are single-model views, and both are useful as long as you know which question each one answers. I make sure the original source and the closing touch are captured correctly and protected from being overwritten, so these views stay honest over the life of a contact.</p>
+                <p class="service-text">First-touch tells you what creates demand. Last-touch tells you what closes it. Both are single-model views, and both are useful as long as you know which question each one answers. I make sure the original source is captured correctly at creation, even for contacts arriving through non-HubSpot forms, and that the closing touch is recorded cleanly, so these views stay honest over the life of a contact.</p>
             </div>
 
             <div class="service-item">
@@ -643,7 +643,7 @@
                 </div>
                 <div class="faq-item">
                     <h3 class="faq-question">Why does HubSpot attribution show numbers we do not trust?</h3>
-                    <p class="faq-answer">Almost always it is the data model underneath, not the report. Broken contact-to-deal associations, inconsistent lifecycle syncing, untracked offline touches, and original-source values that get overwritten all corrupt attribution before the model runs. Fixing attribution starts with fixing the plumbing the model reads from.</p>
+                    <p class="faq-answer">Almost always it is the data model underneath, not the report. Broken contact-to-deal associations, inconsistent lifecycle syncing, untracked offline touches, and website contacts stuck in Offline Sources because they were created outside HubSpot forms all corrupt attribution before the model runs. Fixing attribution starts with fixing the plumbing the model reads from.</p>
                 </div>
                 <div class="faq-item">
                     <h3 class="faq-question">Do we need Marketing Hub Enterprise for this?</h3>
