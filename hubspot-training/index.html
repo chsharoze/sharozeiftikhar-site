@@ -228,6 +228,81 @@
             color: var(--text-primary);
         }
 
+        /* Credential block */
+        .credential {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-left: 3px solid var(--accent-color);
+            border-radius: 8px;
+            padding: 1.75rem;
+            width: 100%;
+        }
+
+        .credential-badge {
+            flex-shrink: 0;
+            width: auto;
+            max-width: 180px;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .credential-text h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 24px;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 0.4rem;
+            letter-spacing: -0.01em;
+        }
+
+        .credential-text p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .credential-text a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .credential-text a:hover {
+            color: var(--accent-hover);
+        }
+
+        /* Booking Section */
+        .booking-section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .booking-section h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 32px;
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+        }
+
+        .booking-section p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .meetings-iframe-container {
+            width: 100%;
+            min-height: 660px;
+        }
+
         /* Core Sections */
         .sections-list {
             display: flex;
@@ -254,6 +329,16 @@
         .content-block strong {
             font-weight: 600;
             color: var(--text-primary);
+        }
+
+        .content-block a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .content-block a:hover {
+            color: var(--accent-hover);
         }
 
         /* FAQ Section */
@@ -467,6 +552,13 @@
                 font-size: 18px;
             }
 
+            .credential {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+                padding: 1.5rem 1.25rem;
+            }
+
             .cta-section {
                 padding: 2rem 1.25rem;
             }
@@ -572,7 +664,24 @@
             </p>
         </section>
 
+        <section class="credential">
+            <a href="https://app.hubspot.com/academy/achievements/0nmg8kpn/en/1/sharoze-iftikhar/hubspot-certified-trainer" target="_blank" rel="noopener" title="HubSpot Certified Trainer" aria-label="Verify HubSpot Certified Trainer credential">
+                <img class="credential-badge" src="https://hubspot-credentials-na1.s3.amazonaws.com/prod/badges/user/246fc2e8e4934b1297ba2ce1a1753cf1.png" alt="HubSpot Certified Trainer badge">
+            </a>
+            <div class="credential-text">
+                <h2>HubSpot Certified Trainer</h2>
+                <p>An official HubSpot Academy credential earned through an exam and a reviewed training practicum, on top of 26+ HubSpot certifications. <a href="https://academy.hubspot.com/hubspot-certified-trainer" target="_blank" rel="noopener">About the certification &rarr;</a></p>
+            </div>
+        </section>
+
         <section class="sections-list">
+            <article class="content-block">
+                <h2>Why This Training Is Different</h2>
+                <p>
+                    The gap in most HubSpot training isn't knowledge of the interface, it's that the trainer has never had to make the portal <strong>do real work</strong>. I have. I build <strong>custom-coded workflow actions</strong>, ship a <strong>HubSpot app</strong>, and architect RevOps systems for live client portals. So when your team asks "can HubSpot actually do this?", the answer is grounded in what the platform can genuinely deliver, not a sales deck. That's the difference between training that fades and training that changes how a team works.
+                </p>
+            </article>
+
             <article class="content-block">
                 <h2>Who It's For</h2>
                 <p>
@@ -606,6 +715,18 @@
             <h2 class="faq-title">Frequently Asked Questions</h2>
             <div class="faq-list">
                 <details class="faq-item">
+                    <summary class="faq-question">Is Sharoze Iftikhar a HubSpot Certified Trainer?</summary>
+                    <div class="faq-answer">
+                        <p>Yes. I hold the HubSpot Certified Trainer credential, an official HubSpot Academy certification earned through an exam and a reviewed training practicum. It sits on top of 26+ HubSpot certifications spanning Revenue Operations, Platform Consulting, Sales Hub, Marketing Hub, and Data Integrations.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">What makes you different from other HubSpot trainers?</summary>
+                    <div class="faq-answer">
+                        <p>Most trainers teach the interface. I build the platform, custom-coded workflow actions, a HubSpot app, and full RevOps architectures, and then train teams on what I build. You get a trainer who understands HubSpot back-end and front-end, so the training maps to how your portal actually works rather than a generic curriculum.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
                     <summary class="faq-question">Do you offer remote HubSpot training?</summary>
                     <div class="faq-answer">
                         <p>Yes. All training is delivered remotely via live, interactive video sessions. We do not use pre-recorded lectures. The programs are timezone-flexible, allowing us to align workshops with teams globally without travel overhead or scheduling friction.</p>
@@ -623,15 +744,20 @@
                         <p>Every engagement starts with a brief discovery call to understand your team's role, current HubSpot usage, and specific process gaps. From there, we build a custom agenda and training plan mapped directly to your operational workflows and business objectives.</p>
                     </div>
                 </details>
+                <details class="faq-item">
+                    <summary class="faq-question">How do I book HubSpot training with you?</summary>
+                    <div class="faq-answer">
+                        <p>Use the scheduler below to book a discovery call directly. Every engagement starts with a short call to scope your team's roles, current HubSpot usage, and process gaps before I build a custom training plan.</p>
+                    </div>
+                </details>
             </div>
         </section>
 
-        <section class="cta-section">
-            <h2 class="cta-title">Ready to Enable Your Team?</h2>
-            <p class="cta-desc">Get in touch to request a custom HubSpot training plan tailored to your team's specific tools, processes, and gaps.</p>
-            <div class="cta-actions">
-                <a href="/contact/" class="btn btn-primary">Request a training plan</a>
-            </div>
+        <section class="booking-section">
+            <h2>Ready to Enable Your Team?</h2>
+            <p>Grab a time below for a short discovery call, not the training itself. We'll scope your team's roles, current HubSpot usage, and process gaps, then I'll put together a custom training plan and quote.</p>
+            <div class="meetings-iframe-container" data-src="https://meetings-na2.hubspot.com/sharoze1?embed=true"></div>
+            <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
             <div class="cross-links">
                 <span class="cross-links-label">Other Services:</span>
                 <a href="/services/#revops" class="cross-link">RevOps Architecture &rarr;</a>
