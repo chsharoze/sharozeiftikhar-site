@@ -499,7 +499,6 @@
         <section class="narrative-section">
             <h2 class="section-title">The product started with one precise job</h2>
             <p>NetworkDays calculates business days inside HubSpot workflows. It skips weekends and public holidays, with support for more than 145 country holiday calendars. The product is deliberately focused on bringing that business-day logic into HubSpot workflow actions.</p>
-            <p>The app is available through direct HubSpot OAuth installation today. It is not yet listed on the public HubSpot Marketplace because I am still working toward the required unaffiliated-install threshold. I built the product and its operating systems for real production use before that distribution milestone.</p>
             <div class="tier-grid">
                 <article class="tier-card">
                     <h3>Free</h3>
@@ -520,13 +519,6 @@
             </div>
         </section>
 
-        <!-- 3. Architecture -->
-        <section class="narrative-section">
-            <h2 class="section-title">I kept the architecture understandable</h2>
-            <p>The backend runs on <strong>Python and FastAPI</strong>. Data lives in <strong>SQLite with WAL mode</strong>. The application is containerized with <strong>Docker</strong> and deployed on Hetzner, with a dedicated production server and a separate shared sandbox and development box. <strong>Caddy</strong> handles TLS and reverse proxy duties.</p>
-            <p>HubSpot OAuth manages installation and account access. HubSpot UI Extensions provide the in-app interface. Production runs on its dedicated server, while sandbox and development work stay on the separate shared box.</p>
-        </section>
-
         <!-- 4. Verification -->
         <section class="narrative-section">
             <h2 class="section-title">The test count matters because the failure modes are real</h2>
@@ -543,14 +535,7 @@
             <p>The observability layer covers error tracking, scheduler heartbeats, uptime monitoring, and a metrics dashboard with alerting. These systems answer different questions: whether the app is reachable, whether background work is still running, whether exceptions are occurring, and whether operating metrics have moved outside expected conditions.</p>
         </section>
 
-        <!-- 6. Real Use -->
-        <section class="narrative-section">
-            <h2 class="section-title">The final test is ordinary production use</h2>
-            <p>NetworkDays has one real paying-adjacent customer using it in production today, a company in Brazil. It is not a hypothetical account and not a demo environment.</p>
-            <p>Roughly three months of active work produced more than a workflow action. The result is a production app with tiered access, billing controls, safe releases, monitoring, and an interface inside HubSpot. The build is still moving toward public Marketplace eligibility, but the engineering discipline is already in place.</p>
-        </section>
-
-        <!-- 7. Closing CTA -->
+        <!-- 6. Closing CTA -->
         <section class="cta-section">
             <h2 class="cta-title">See what NetworkDays does inside HubSpot</h2>
             <p>Review the workflow actions, country calendars, company holiday support, CRM card, and Velocity Reports on the product site.</p>
