@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S0K1G9R1XX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-S0K1G9R1XX');</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","xbm9f6q1t6");</script>
+<!-- HubSpot embed (portal 45646869) -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/45646869.js"></script>
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How I Built NetworkDays, a HubSpot App | Sharoze Iftikhar</title>
+    <meta name="description" content="A roughly three-month build journey behind NetworkDays: HubSpot workflow actions, billing integrity, 552 automated tests, safe deploys, and production observability.">
+    <link rel="canonical" href="https://sharozeiftikhar.com/networkdays-case-study/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="How I Built NetworkDays, a HubSpot App | Sharoze Iftikhar">
+    <meta property="og:description" content="A roughly three-month build journey behind NetworkDays: HubSpot workflow actions, billing integrity, 552 automated tests, safe deploys, and production observability.">
+    <meta property="og:url" content="https://sharozeiftikhar.com/networkdays-case-study/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Sharoze Iftikhar">
+    <meta property="og:image" content="https://sharozeiftikhar.com/feature-images/og-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How I Built NetworkDays, a HubSpot App | Sharoze Iftikhar">
+    <meta name="twitter:description" content="A roughly three-month build journey behind NetworkDays: HubSpot workflow actions, billing integrity, 552 automated tests, safe deploys, and production observability.">
+    <meta name="twitter:image" content="https://sharozeiftikhar.com/feature-images/og-card.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap"></noscript>
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://sharozeiftikhar.com/#person",
+          "name": "Sharoze Iftikhar",
+          "url": "https://sharozeiftikhar.com/"
+        },
+        {
+          "@type": "CreativeWork",
+          "@id": "https://sharozeiftikhar.com/networkdays-case-study/#case-study",
+          "name": "How I Built NetworkDays, a HubSpot App",
+          "description": "A founder narrative about building and operating NetworkDays with disciplined testing, billing safeguards, deployment controls, and production observability.",
+          "url": "https://sharozeiftikhar.com/networkdays-case-study/",
+          "author": {
+            "@id": "https://sharozeiftikhar.com/#person"
+          },
+          "about": {
+            "@type": "SoftwareApplication",
+            "name": "NetworkDays",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "HubSpot",
+            "url": "https://networkdays.io"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://sharozeiftikhar.com/networkdays-case-study/#webpage",
+          "url": "https://sharozeiftikhar.com/networkdays-case-study/",
+          "name": "How I Built NetworkDays, a HubSpot App | Sharoze Iftikhar",
+          "description": "A roughly three-month build journey behind NetworkDays: HubSpot workflow actions, billing integrity, 552 automated tests, safe deploys, and production observability.",
+          "isPartOf": {
+            "@id": "https://sharozeiftikhar.com/#website"
+          },
+          "datePublished": "2026-08-09",
+          "dateModified": "2026-08-09",
+          "mainEntity": {
+            "@id": "https://sharozeiftikhar.com/networkdays-case-study/#case-study"
+          },
+          "breadcrumb": {
+            "@id": "https://sharozeiftikhar.com/networkdays-case-study/#breadcrumb"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://sharozeiftikhar.com/networkdays-case-study/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://sharozeiftikhar.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "NetworkDays Case Study",
+              "item": "https://sharozeiftikhar.com/networkdays-case-study/"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --card-bg: #1a1a1a;
+            --accent-color: #f5a623;
+            --accent-hover: #e09214;
+            --text-primary: #f0f0f0;
+            --text-secondary: #888888;
+            --border-color: #2a2a2a;
+            --max-width: 680px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        .site-nav {
+            border-bottom: 1px solid var(--border-color);
+            width: 100%;
+        }
+
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .nav-brand {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-brand:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-badge {
+            display: inline-flex;
+            align-items: center;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            border-radius: 999px;
+            padding: 0.3rem 0.6rem;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .nav-badge::before {
+            content: "\2713";
+            margin-right: 0.3rem;
+            font-weight: 700;
+        }
+
+        .nav-badge:hover {
+            background-color: var(--accent-color);
+            color: #0d0d0d;
+        }
+
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .wrapper {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3.75rem;
+        }
+
+        .case-study-main {
+            display: flex;
+            flex-direction: column;
+            gap: 3.75rem;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .eyebrow {
+            color: var(--accent-color);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 48px;
+            font-weight: 400;
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+        }
+
+        .subhead {
+            color: var(--text-secondary);
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .meta {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .narrative-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+        }
+
+        .section-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 32px;
+            font-weight: 400;
+            line-height: 1.18;
+        }
+
+        .narrative-section p {
+            color: var(--text-secondary);
+            line-height: 1.75;
+        }
+
+        .narrative-section strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .tier-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .tier-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+        }
+
+        .tier-card h3 {
+            color: var(--text-primary);
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .tier-card p {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .product-link-block {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-left: 3px solid var(--accent-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .product-link-block span {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .product-link-block a {
+            color: var(--accent-color);
+            font-weight: 600;
+            text-decoration: none;
+            width: fit-content;
+        }
+
+        .product-link-block a:hover {
+            color: var(--accent-hover);
+        }
+
+        .cta-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .cta-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 30px;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            padding: 0.8rem 1.25rem;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #0d0d0d;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 700px) {
+            .nav-container {
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .nav-brand-group {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .nav-links {
+                gap: 0.9rem;
+            }
+
+            .title {
+                font-size: 40px;
+            }
+
+            .tier-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-links {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                flex-direction: column;
+            }
+
+            .wrapper {
+                padding-top: 3rem;
+            }
+
+            .title {
+                font-size: 36px;
+            }
+
+            .subhead {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-nav">
+        <div class="nav-container">
+            <div class="nav-brand-group">
+                <a href="/" class="nav-brand">Sharoze Iftikhar</a>
+                <a href="https://app.hubspot.com/academy/achievements/0nmg8kpn/en/1/sharoze-iftikhar/hubspot-certified-trainer" target="_blank" rel="noopener" class="nav-badge" aria-label="HubSpot Certified Trainer" title="HubSpot Certified Trainer">HubSpot Certified Trainer</a>
+            </div>
+            <nav class="nav-links">
+                <a href="/services/">Services</a>
+                <a href="/about/">About</a>
+                <a href="/contact/">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        <main id="main" class="case-study-main">
+        <!-- 1. Hero -->
+        <section class="hero">
+            <span class="eyebrow">Build journey</span>
+            <h1 class="title">How I built NetworkDays</h1>
+            <p class="subhead">I spent roughly three months turning a focused HubSpot workflow problem into a production app with real billing, deployment controls, observability, and 552 automated tests.</p>
+            <p class="meta">Built and operated by Sharoze Iftikhar</p>
+        </section>
+
+        <!-- 2. Product Scope -->
+        <section class="narrative-section">
+            <h2 class="section-title">The product started with one precise job</h2>
+            <p>NetworkDays calculates business days inside HubSpot workflows. It skips weekends and public holidays, with support for more than 145 country holiday calendars. The product is deliberately focused on bringing that business-day logic into HubSpot workflow actions.</p>
+            <p>The app is available through direct HubSpot OAuth installation today. It is not yet listed on the public HubSpot Marketplace because I am still working toward the required unaffiliated-install threshold. I built the product and its operating systems for real production use before that distribution milestone.</p>
+            <div class="tier-grid">
+                <article class="tier-card">
+                    <h3>Free</h3>
+                    <p>The Calculate Business Days action with country holiday calendars.</p>
+                </article>
+                <article class="tier-card">
+                    <h3>Pro, $25/month</h3>
+                    <p>Add, subtract, check, and find next or previous business-day actions, plus company holidays.</p>
+                </article>
+                <article class="tier-card">
+                    <h3>Premium, $50/month</h3>
+                    <p>A CRM card and Velocity Reports that write deal and ticket business-day KPIs into native reportable HubSpot properties.</p>
+                </article>
+            </div>
+            <div class="product-link-block">
+                <span>Product details and direct installation</span>
+                <a href="https://networkdays.io/?utm_source=sharozeiftikhar.com&amp;utm_medium=referral&amp;utm_campaign=si-case-study" target="_blank" rel="noopener noreferrer">Visit networkdays.io</a>
+            </div>
+        </section>
+
+        <!-- 3. Architecture -->
+        <section class="narrative-section">
+            <h2 class="section-title">I kept the architecture understandable</h2>
+            <p>The backend runs on <strong>Python and FastAPI</strong>. Data lives in <strong>SQLite with WAL mode</strong>. The application is containerized with <strong>Docker</strong> and deployed on Hetzner, with a dedicated production server and a separate shared sandbox and development box. <strong>Caddy</strong> handles TLS and reverse proxy duties.</p>
+            <p>HubSpot OAuth manages installation and account access. HubSpot UI Extensions provide the in-app interface. Production runs on its dedicated server, while sandbox and development work stay on the separate shared box.</p>
+        </section>
+
+        <!-- 4. Verification -->
+        <section class="narrative-section">
+            <h2 class="section-title">The test count matters because the failure modes are real</h2>
+            <p>The latest release has <strong>552 automated tests</strong>. Testing was one part of the release discipline, alongside independent audits, database snapshots, and rollback tags.</p>
+            <p>I also ran two independent AI-model audits across security and billing integrity. Two different model families cross-checked each other's findings. The audits caught real bugs before they reached a paying customer, including one that would have silently downgraded every subscriber back to the free tier roughly a month after signup.</p>
+            <p>That finding justified the discipline. The point of using AI in review was not to replace tests or judgment. It was to create another independent path for finding faults in code where a quiet error could affect every subscriber.</p>
+        </section>
+
+        <!-- 5. Production Discipline -->
+        <section class="narrative-section">
+            <h2 class="section-title">Production changes start with a way back</h2>
+            <p>Every production deployment is gated on two steps first: a database snapshot and a git rollback tag. There are no exceptions. A deploy is not ready if I cannot restore the data and identify the exact code state that preceded it.</p>
+            <p>Paddle billing went live only after checkout, webhooks, automatic dunning and retry handling, and a daily reconciliation sweep were verified end to end in production. The daily reconciliation sweep checks for missed webhook events.</p>
+            <p>The observability layer covers error tracking, scheduler heartbeats, uptime monitoring, and a metrics dashboard with alerting. These systems answer different questions: whether the app is reachable, whether background work is still running, whether exceptions are occurring, and whether operating metrics have moved outside expected conditions.</p>
+        </section>
+
+        <!-- 6. Real Use -->
+        <section class="narrative-section">
+            <h2 class="section-title">The final test is ordinary production use</h2>
+            <p>NetworkDays has one real paying-adjacent customer using it in production today, a company in Brazil. It is not a hypothetical account and not a demo environment.</p>
+            <p>Roughly three months of active work produced more than a workflow action. The result is a production app with tiered access, billing controls, safe releases, monitoring, and an interface inside HubSpot. The build is still moving toward public Marketplace eligibility, but the engineering discipline is already in place.</p>
+        </section>
+
+        <!-- 7. Closing CTA -->
+        <section class="cta-section">
+            <h2 class="cta-title">See what NetworkDays does inside HubSpot</h2>
+            <p>Review the workflow actions, country calendars, company holiday support, CRM card, and Velocity Reports on the product site.</p>
+            <a href="https://networkdays.io/?utm_source=sharozeiftikhar.com&amp;utm_medium=referral&amp;utm_campaign=si-case-study" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Explore NetworkDays</a>
+        </section>
+
+        </main>
+        <footer class="footer">
+            <p class="copyright">&copy; 2026 Sharoze Iftikhar</p>
+            <nav class="footer-links">
+                <a href="/services/" class="footer-link">Services</a>
+                <a href="/about/" class="footer-link">About</a>
+                <a href="/contact/" class="footer-link">Contact</a>
+                <a href="https://www.linkedin.com/in/sharoze/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+                <a href="https://revopsdev.com/?utm_source=sharozeiftikhar.com&amp;utm_medium=referral&amp;utm_campaign=si-footer" target="_blank" rel="noopener noreferrer" class="footer-link">RevOpsDev</a>
+                <a href="https://networkdays.io/?utm_source=sharozeiftikhar.com&amp;utm_medium=referral&amp;utm_campaign=si-footer" target="_blank" rel="noopener noreferrer" class="footer-link">NetworkDays</a>
+            </nav>
+        </footer>
+    </div>
+    <!-- GTM noscript: paste Google Tag Manager <noscript> snippet here -->
+</body>
+</html>
