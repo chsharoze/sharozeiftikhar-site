@@ -519,23 +519,13 @@
             </div>
         </section>
 
-        <!-- 4. Verification -->
+        <!-- 4. Engineering Discipline -->
         <section class="narrative-section">
-            <h2 class="section-title">The test count matters because the failure modes are real</h2>
-            <p>The latest release has <strong>552 automated tests</strong>. Testing was one part of the release discipline, alongside independent audits, database snapshots, and rollback tags.</p>
-            <p>I also ran two independent AI-model audits across security and billing integrity. Two different model families cross-checked each other's findings. The audits caught real bugs before they reached a paying customer, including one that would have silently downgraded every subscriber back to the free tier roughly a month after signup.</p>
-            <p>That finding justified the discipline. The point of using AI in review was not to replace tests or judgment. It was to create another independent path for finding faults in code where a quiet error could affect every subscriber.</p>
+            <h2 class="section-title">Engineering discipline, not luck</h2>
+            <p><strong>552 automated tests.</strong> Two independent AI-model audits, cross-checking each other, caught real bugs before they reached a paying customer, including one that would have quietly downgraded every subscriber back to free about a month after signup. Every production deploy is gated on a database snapshot and a rollback tag, no exceptions. Billing went live only after being verified end to end, with monitoring in place before a real customer ever touched it.</p>
         </section>
 
-        <!-- 5. Production Discipline -->
-        <section class="narrative-section">
-            <h2 class="section-title">Production changes start with a way back</h2>
-            <p>Every production deployment is gated on two steps first: a database snapshot and a git rollback tag. There are no exceptions. A deploy is not ready if I cannot restore the data and identify the exact code state that preceded it.</p>
-            <p>Paddle billing went live only after checkout, webhooks, automatic dunning and retry handling, and a daily reconciliation sweep were verified end to end in production. The daily reconciliation sweep checks for missed webhook events.</p>
-            <p>The observability layer covers error tracking, scheduler heartbeats, uptime monitoring, and a metrics dashboard with alerting. These systems answer different questions: whether the app is reachable, whether background work is still running, whether exceptions are occurring, and whether operating metrics have moved outside expected conditions.</p>
-        </section>
-
-        <!-- 6. Closing CTA -->
+        <!-- 5. Closing CTA -->
         <section class="cta-section">
             <h2 class="cta-title">See what NetworkDays does inside HubSpot</h2>
             <p>Review the workflow actions, country calendars, company holiday support, CRM card, and Velocity Reports on the product site.</p>
