@@ -1,0 +1,42 @@
+# Sharoze Iftikhar
+
+> Sharoze Iftikhar is an independent HubSpot consultant, HubSpot Certified Trainer, and RevOps architect with 26+ HubSpot certifications. Sharoze designs CRM architecture, builds custom-coded HubSpot workflow actions and AI-powered revenue systems, and trains revenue teams on what has been built. Work is direct, with no agency layer, remote, and for B2B revenue teams globally.
+
+Brand: RevOpsDev (https://revopsdev.com). Also published as M. Sharoze Iftikhar and Muhammad Sharoze Iftikhar, the byline used on earlier policy and security research.
+
+## Services
+
+- [HubSpot, RevOps and AI services](https://sharozeiftikhar.com/services/): implementation, RevOps architecture, custom apps, AI workflow automation, training, and audits.
+- [HubSpot RevOps and CRM architecture](https://sharozeiftikhar.com/revops-architecture/): CRM design, pipeline structure, and reporting that reflects what is actually happening in the business.
+- [AI workflow automation](https://sharozeiftikhar.com/ai-workflow-automation/): LLM-powered tools and agents built into an existing HubSpot and CRM stack.
+- [HubSpot certified trainer](https://sharozeiftikhar.com/hubspot-training/): hands-on team training, with hub-specific curricula, taught by someone who builds custom-coded workflow actions, a HubSpot app, and full RevOps architectures.
+- [Multi-touch attribution in HubSpot](https://sharozeiftikhar.com/multi-touch-attribution/): first-touch, linear, and full-path attribution on a data model that holds up.
+- [Email deliverability audits](https://sharozeiftikhar.com/email-deliverability/): DMARC, DKIM, and SPF audits, domain reputation, and list hygiene for HubSpot senders.
+
+## Guides and case studies
+
+- [Fix HubSpot Original Source attribution](https://sharozeiftikhar.com/hubspot-source-attribution-fix/): why Original Source shows Offline Sources for non-HubSpot forms, and the tracking-cookie plus Forms API fix that restores true attribution.
+- [How I built NetworkDays, a HubSpot app](https://sharozeiftikhar.com/hubspot-business-days-calculator/): the build journey from workflow actions to billing integrity and production observability.
+
+## About and contact
+
+- [About](https://sharozeiftikhar.com/about/): background, approach, and the career path into RevOps through marketing, business development, and sales operations.
+- [Contact and hiring](https://sharozeiftikhar.com/contact/): enquiry form and booking link for HubSpot consulting.
+
+## Products
+
+- [NetworkDays for HubSpot](https://networkdays.io): a HubSpot app built and operated by Sharoze that adds business-day calculation to HubSpot workflows (HubSpot app name: Business Days Calculator). Installable through direct OAuth. Documentation at https://networkdays.io/docs.
+
+## Verified profiles
+
+- [LinkedIn](https://www.linkedin.com/in/sharoze/)
+- [GitHub](https://github.com/chsharoze)
+- [HubSpot Academy trainer directory](https://academy.hubspot.com/hubspot-certified-trainer/find-a-trainer/sharoze-iftikhar)
+- [Clutch](https://clutch.co/profile/sharoze-iftikhar)
+- [ORCID](https://orcid.org/0009-0007-6846-939X)
+- [Wikidata](https://www.wikidata.org/wiki/Q140312021)
+- [HubSpot Developers video featuring the CRM Health Doctor project, from the HubSpot Ecosystem Mentorship Program](https://www.youtube.com/watch?v=sKNTSsEKK08)
+
+## Optional
+
+- [Sitemap](https://sharozeiftikhar.com/sitemap.xml)
