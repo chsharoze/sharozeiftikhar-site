@@ -73,6 +73,7 @@
             "https://clutch.co/profile/sharoze-iftikhar",
             "https://academy.hubspot.com/hubspot-certified-trainer/find-a-trainer/sharoze-iftikhar",
             "https://pph.me/sharoze.iftikhar",
+            "https://www.credly.com/users/sharoze-iftikhar.792abacf",
             "https://www.youtube.com/watch?v=sKNTSsEKK08",
             "https://orcid.org/0009-0007-6846-939X",
             "https://www.reddit.com/user/sharozeiftikhar/"
@@ -86,15 +87,27 @@
             "email deliverability",
             "nuclear deterrence policy research"
           ],
-          "hasCredential": {
-            "@type": "EducationalOccupationalCredential",
-            "credentialCategory": "certification",
-            "name": "HubSpot Certified Trainer",
-            "recognizedBy": {
-              "@type": "Organization",
-              "name": "HubSpot"
+          "hasCredential": [
+            {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "certification",
+              "name": "HubSpot Certified Trainer",
+              "recognizedBy": {
+                "@type": "Organization",
+                "name": "HubSpot"
+              }
+            },
+            {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "badge",
+              "name": "Claude Partner Badge - Claude Code",
+              "url": "https://www.credly.com/badges/49d8ea46-8450-40b8-a021-cd3a28597aac",
+              "recognizedBy": {
+                "@type": "Organization",
+                "name": "Anthropic"
+              }
             }
-          }
+          ]
         },
         {
           "@type": "WebPage",
@@ -299,7 +312,7 @@
         /* Credential cards */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 1.25rem;
             width: 100%;
         }
@@ -335,6 +348,10 @@
             font-size: 14px;
             color: var(--text-secondary);
             line-height: 1.5;
+        }
+
+        .card-desc a {
+            color: var(--accent-color);
         }
 
         /* CTA Section */
@@ -552,6 +569,10 @@
                 <div class="card">
                     <h3 class="card-title">HubSpot Certified Trainer</h3>
                     <p class="card-desc">Certified to deliver HubSpot training to revenue teams</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Claude Partner Badge</h3>
+                    <p class="card-desc">Claude Code, issued by Anthropic. <a href="https://www.credly.com/badges/49d8ea46-8450-40b8-a021-cd3a28597aac" target="_blank" rel="noopener">Verify on Credly</a></p>
                 </div>
                 <div class="card">
                     <h3 class="card-title">HubSpot App Builder</h3>
