@@ -624,7 +624,8 @@
 }
 
 .nav-col-list a {
-    display: block;
+    display: flex;
+    align-items: center;
     padding: 0.45rem 0;
     font-size: 14px;
     color: var(--text-secondary);
@@ -635,6 +636,86 @@
 
 .nav-col-list a:hover {
     color: var(--accent-color);
+}
+
+.nav-mark {
+    flex: 0 0 18px;
+    display: block;
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+}
+
+.nav-feature {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-sizing: border-box;
+    margin: 0 2rem 1.5rem;
+    padding: 0.85rem 1rem;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--accent-color);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: border-color 0.2s ease;
+}
+
+.nav-feature:hover,
+.nav-feature:focus-visible {
+    border-color: var(--accent-color);
+}
+
+.nav-feature-media {
+    flex: 0 0 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.nav-feature-media img {
+    display: block;
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+}
+
+.nav-feature-text {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.nav-feature-title {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--text-primary);
+}
+
+.nav-feature-sub {
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--text-secondary);
+}
+
+.nav-feature-cta {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent-color);
+    white-space: nowrap;
 }
 
 .nav-col-list a[aria-current="page"] {
@@ -798,6 +879,21 @@ header.site-nav:not([data-nav-js]) .nav-caret {
         align-items: center;
         min-height: 40px;
     }
+
+    .nav-feature {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin: 0.5rem 0 1rem;
+        padding: 0.85rem;
+    }
+
+    .nav-feature-text {
+        flex: 1 1 0;
+    }
+
+    .nav-feature-cta {
+        flex: 1 0 100%;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -854,12 +950,20 @@ header.site-nav:not([data-nav-js]) .nav-caret {
                         <div class="nav-col" data-nav-col>
                             <p class="nav-col-title">Products</p>
                             <ul class="nav-col-list">
-                                <li><a href="/hubspot-business-days-calculator/" aria-current="page">NetworkDays for HubSpot</a></li>
-                                <li><a href="https://networkdays.io/" target="_blank" rel="noopener">networkdays.io <span class="nav-ext" aria-hidden="true">&#8599;</span></a></li>
-                                <li><a href="https://revopsdev.com/" target="_blank" rel="noopener">RevOpsDev <span class="nav-ext" aria-hidden="true">&#8599;</span></a></li>
+                                <li><a href="/hubspot-business-days-calculator/" aria-current="page"><svg class="nav-mark" viewBox="0 0 237 184.8" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><g transform="translate(0, 42.8)"><path fill="#4ADE80" d="M72.10 42.60L11.90 42.60L11.90 31.40L72.10 31.40L72.10 42.60ZM72.10 76.20L11.90 76.20L11.90 65L72.10 65L72.10 76.20Z"/><path fill="#4ADE80" d="M136.90 104.34L136.90 116.80Q117.02 111.90 105.96 97.48Q94.90 83.06 94.90 62.20L94.90 62.20L94.90 37.00Q94.90 23.28 100.01 12.15Q105.12 1.02 114.57-6.68Q124.02-14.38 136.90-17.60L136.90-17.60L136.90-5.70Q127.94-3.60 121.36 2.35Q114.78 8.30 111.14 17.12Q107.50 25.94 107.50 37.00L107.50 37.00L107.50 62.20Q107.50 72.98 111.07 81.80Q114.64 90.62 121.29 96.43Q127.94 102.24 136.90 104.34L136.90 104.34ZM169.10 116.80L169.10 116.80L169.10 104.34Q178.20 102.24 184.78 96.43Q191.36 90.62 194.93 81.80Q198.50 72.98 198.50 62.20L198.50 62.20L198.50 37.00Q198.50 25.94 194.86 17.12Q191.22 8.30 184.64 2.35Q178.06-3.60 169.10-5.70L169.10-5.70L169.10-17.60Q182.12-14.38 191.50-6.68Q200.88 1.02 205.99 12.15Q211.10 23.28 211.10 37.00L211.10 37.00L211.10 62.20Q211.10 83.06 200.04 97.48Q188.98 111.90 169.10 116.80Z"/></g></svg>NetworkDays for HubSpot</a></li>
+                                <li><a href="https://networkdays.io/" target="_blank" rel="noopener"><svg class="nav-mark" viewBox="0 0 237 184.8" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><g transform="translate(0, 42.8)"><path fill="#4ADE80" d="M72.10 42.60L11.90 42.60L11.90 31.40L72.10 31.40L72.10 42.60ZM72.10 76.20L11.90 76.20L11.90 65L72.10 65L72.10 76.20Z"/><path fill="#4ADE80" d="M136.90 104.34L136.90 116.80Q117.02 111.90 105.96 97.48Q94.90 83.06 94.90 62.20L94.90 62.20L94.90 37.00Q94.90 23.28 100.01 12.15Q105.12 1.02 114.57-6.68Q124.02-14.38 136.90-17.60L136.90-17.60L136.90-5.70Q127.94-3.60 121.36 2.35Q114.78 8.30 111.14 17.12Q107.50 25.94 107.50 37.00L107.50 37.00L107.50 62.20Q107.50 72.98 111.07 81.80Q114.64 90.62 121.29 96.43Q127.94 102.24 136.90 104.34L136.90 104.34ZM169.10 116.80L169.10 116.80L169.10 104.34Q178.20 102.24 184.78 96.43Q191.36 90.62 194.93 81.80Q198.50 72.98 198.50 62.20L198.50 62.20L198.50 37.00Q198.50 25.94 194.86 17.12Q191.22 8.30 184.64 2.35Q178.06-3.60 169.10-5.70L169.10-5.70L169.10-17.60Q182.12-14.38 191.50-6.68Q200.88 1.02 205.99 12.15Q211.10 23.28 211.10 37.00L211.10 37.00L211.10 62.20Q211.10 83.06 200.04 97.48Q188.98 111.90 169.10 116.80Z"/></g></svg>networkdays.io <span class="nav-ext" aria-hidden="true">&#8599;</span></a></li>
+                                <li><a href="https://revopsdev.com/" target="_blank" rel="noopener"><svg class="nav-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><g fill="none" stroke="#f5a623" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"><path d="M 25,83 V 29 a 12,12 0 0 1 12,-12 h 16 a 22,22 0 0 1 0,44 H 39"/><path d="M 53,61 L 75,83"/></g><circle cx="75" cy="17" r="6" fill="#f5a623"/></svg>RevOpsDev <span class="nav-ext" aria-hidden="true">&#8599;</span></a></li>
                             </ul>
                         </div>
                     </div>
+                    <a class="nav-feature" href="/hubspot-training/" data-nav-feature>
+                        <span class="nav-feature-media"><img src="https://hubspot-credentials-na1.s3.amazonaws.com/prod/badges/user/246fc2e8e4934b1297ba2ce1a1753cf1.png" alt="HubSpot Certified Trainer badge" width="72" height="72" loading="lazy" decoding="async"></span>
+                        <span class="nav-feature-text">
+                            <span class="nav-feature-title">HubSpot Training for Teams</span>
+                            <span class="nav-feature-sub">Hands-on sessions in your own portal, led by a HubSpot Certified Trainer.</span>
+                        </span>
+                        <span class="nav-feature-cta">See training <span aria-hidden="true">&rarr;</span></span>
+                    </a>
                     <div class="nav-panel-foot">
                         <a href="/services/">All services</a>
                     </div>
@@ -1062,6 +1166,10 @@ header.site-nav:not([data-nav-js]) .nav-caret {
             if (cols.length) {
                 gsap.set(cols, { clearProps: 'all' });
             }
+            var feature = panel.querySelector('[data-nav-feature]');
+            if (feature) {
+                gsap.set(feature, { clearProps: 'all' });
+            }
         }
     }
 
@@ -1073,6 +1181,7 @@ header.site-nav:not([data-nav-js]) .nav-caret {
         if (!panel) return;
 
         var cols = header.querySelectorAll('[data-nav-col]');
+        var feature = header.querySelector('[data-nav-feature]');
         var desktop = window.matchMedia('(min-width: 641px)');
         var running = [];
 
@@ -1092,6 +1201,9 @@ header.site-nav:not([data-nav-js]) .nav-caret {
             if (cols.length) {
                 gsap.set(cols, { clearProps: 'all' });
             }
+            if (feature) {
+                gsap.set(feature, { clearProps: 'all' });
+            }
         }
 
         function open() {
@@ -1101,6 +1213,9 @@ header.site-nav:not([data-nav-js]) .nav-caret {
                 gsap.set(panel, { clearProps: 'all' });
                 if (cols.length) {
                     gsap.set(cols, { clearProps: 'all' });
+                }
+                if (feature) {
+                    gsap.set(feature, { clearProps: 'all' });
                 }
 
                 var tl = gsap.timeline();
@@ -1116,6 +1231,14 @@ header.site-nav:not([data-nav-js]) .nav-caret {
                         { autoAlpha: 0, y: 8 },
                         { autoAlpha: 1, y: 0, duration: 0.22, ease: 'power2.out', stagger: 0.05 },
                         0.02
+                    );
+                }
+                if (feature) {
+                    tl.fromTo(
+                        feature,
+                        { autoAlpha: 0, y: 8 },
+                        { autoAlpha: 1, y: 0, duration: 0.22, ease: 'power2.out' },
+                        0.17
                     );
                 }
                 running.push(tl);
