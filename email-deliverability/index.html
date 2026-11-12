@@ -566,22 +566,404 @@
                 white-space: nowrap;
             }
         }
-    </style>
+    
+/* nav-shared:start */
+/* Shared mega-menu nav. Stamped into every page by tools/build_nav.py. */
+
+.site-nav {
+    position: relative;
+    z-index: 100;
+}
+
+.nav-container {
+    position: relative;
+}
+
+.nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin-left: auto;
+    padding: 0;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.nav-toggle-bar,
+.nav-toggle-bar::before,
+.nav-toggle-bar::after {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background-color: currentColor;
+    border-radius: 1px;
+}
+
+.nav-toggle-bar {
+    position: relative;
+}
+
+.nav-toggle-bar::before,
+.nav-toggle-bar::after {
+    content: "";
+    position: absolute;
+    left: 0;
+}
+
+.nav-toggle-bar::before { top: -6px; }
+.nav-toggle-bar::after { top: 6px; }
+
+.nav-links {
+    align-items: center;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links .nav-link {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.nav-links .nav-link:hover {
+    color: var(--accent-color);
+}
+
+.nav-links .nav-link.active {
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 2px;
+}
+
+.nav-caret {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    margin-left: 2px;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.nav-caret:hover { color: var(--accent-color); }
+
+.nav-caret-glyph {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 0.2s ease;
+}
+
+.nav-item.is-open .nav-caret-glyph {
+    transform: rotate(-135deg);
+}
+
+.nav-panel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 50;
+    display: none;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+.nav-panel-inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.nav-col-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+}
+
+.nav-col-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.nav-col-list a {
+    display: block;
+    padding: 0.45rem 0;
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    transition: color 0.2s ease;
+}
+
+.nav-col-list a:hover {
+    color: var(--accent-color);
+}
+
+.nav-col-list a[aria-current="page"] {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.nav-panel-foot {
+    border-top: 1px solid var(--border-color);
+    padding: 1rem 2rem;
+}
+
+.nav-panel-foot a {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.nav-panel-foot a:hover {
+    color: var(--accent-hover);
+}
+
+.nav-panel-foot a[aria-current="page"] {
+    text-decoration: underline;
+}
+
+.nav-ext {
+    font-size: 12px;
+    margin-left: 0.15rem;
+}
+
+@media (min-width: 641px) {
+    .nav-toggle { display: none; }
+
+    .nav-item-services > .nav-panel::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -1.5rem;
+        height: 1.5rem;
+    }
+
+    header.site-nav:not([data-nav-js]) .nav-item-services:hover > .nav-panel,
+    header.site-nav:not([data-nav-js]) .nav-item-services:focus-within > .nav-panel,
+    .nav-item-services.is-open > .nav-panel {
+        display: block;
+    }
+}
+
+header.site-nav:not([data-nav-js]) .nav-caret {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .nav-container {
+        flex-wrap: wrap;
+        row-gap: 0.75rem;
+    }
+
+    header.site-nav[data-nav-js] .nav-toggle {
+        display: inline-flex;
+    }
+
+    .nav-links {
+        flex-basis: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        width: 100%;
+        margin-top: 0.25rem;
+        border-top: 1px solid var(--border-color);
+    }
+
+    header.site-nav[data-nav-js] .nav-links {
+        display: none;
+    }
+
+    header.site-nav[data-nav-js] .nav-links.is-open {
+        display: flex;
+    }
+
+    .nav-item {
+        width: 100%;
+        min-height: 44px;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-links .nav-link {
+        display: flex;
+        align-items: center;
+        flex: 1 1 auto;
+        min-height: 44px;
+        padding: 0.5rem 0;
+        font-size: 16px;
+    }
+
+    .nav-links .nav-link.active {
+        border-bottom: 0;
+        padding-bottom: 0.5rem;
+    }
+
+    .nav-caret {
+        flex: 0 0 44px;
+        width: 44px;
+        height: 44px;
+        margin-left: 0;
+    }
+
+    .nav-item-services {
+        flex-wrap: wrap;
+    }
+
+    .nav-item-services > .nav-panel {
+        flex-basis: 100%;
+        order: 3;
+    }
+
+    .nav-panel {
+        position: static;
+        display: none;
+        background-color: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .nav-item.is-open > .nav-panel {
+        display: block;
+    }
+
+    header.site-nav:not([data-nav-js]) .nav-panel {
+        display: block;
+    }
+
+    .nav-panel-inner {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0.5rem 0 1rem;
+    }
+
+    .nav-col-title {
+        margin-top: 0.5rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .nav-col-list a {
+        display: flex;
+        align-items: center;
+        min-height: 40px;
+        padding: 0.25rem 0;
+    }
+
+    .nav-panel-foot {
+        padding: 0.5rem 0 1rem;
+    }
+
+    .nav-panel-foot a {
+        display: flex;
+        align-items: center;
+        min-height: 40px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-nav *,
+    .site-nav *::before,
+    .site-nav *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+/* nav-shared:end */
+</style>
 </head>
 <body>
-    <header class="site-nav">
-        <div class="nav-container">
-            <div class="nav-brand-group">
-                <a href="/" class="nav-brand">Sharoze Iftikhar</a>
-                <a href="https://app.hubspot.com/academy/achievements/0nmg8kpn/en/1/sharoze-iftikhar/hubspot-certified-trainer" target="_blank" rel="noopener" class="nav-badge" aria-label="HubSpot Certified Trainer" title="HubSpot Certified Trainer">HubSpot Certified Trainer</a>
-            </div>
-            <nav class="nav-links">
-                <a href="/services/">Services</a>
-                <a href="/about/">About</a>
-                <a href="/contact/">Contact</a>
-            </nav>
+    <!-- nav:start -->
+<header class="site-nav">
+    <div class="nav-container">
+        <div class="nav-brand-group">
+            <a href="/" class="nav-brand">Sharoze Iftikhar</a>
+            <a href="https://app.hubspot.com/academy/achievements/0nmg8kpn/en/1/sharoze-iftikhar/hubspot-certified-trainer" target="_blank" rel="noopener" class="nav-badge" aria-label="HubSpot Certified Trainer" title="HubSpot Certified Trainer">HubSpot Certified Trainer</a>
         </div>
-    </header>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu">
+            <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+        <nav class="nav-links" id="nav-menu" aria-label="Main">
+            <div class="nav-item nav-item-services">
+                <a href="/services/" class="nav-link active" aria-current="true">Services</a>
+                <button class="nav-caret" type="button" aria-expanded="false" aria-controls="nav-services-panel" aria-label="Toggle services menu">
+                    <span class="nav-caret-glyph" aria-hidden="true"></span>
+                </button>
+                <div class="nav-panel" id="nav-services-panel" data-nav-panel>
+                    <div class="nav-panel-inner">
+                        <div class="nav-col" data-nav-col>
+                            <p class="nav-col-title">Consulting</p>
+                            <ul class="nav-col-list">
+                                <li><a href="/revops-architecture/">RevOps Architecture</a></li>
+                                <li><a href="/ai-workflow-automation/">AI Workflow Automation</a></li>
+                                <li><a href="/multi-touch-attribution/">Multi-Touch Attribution</a></li>
+                                <li><a href="/hubspot-source-attribution-fix/">Source Attribution Fix</a></li>
+                                <li><a href="/email-deliverability/" aria-current="page">Email Deliverability</a></li>
+                                <li><a href="/hubspot-expert/">Hire a HubSpot Expert</a></li>
+                            </ul>
+                        </div>
+                        <div class="nav-col" data-nav-col>
+                            <p class="nav-col-title">Training</p>
+                            <ul class="nav-col-list">
+                                <li><a href="/hubspot-training/">HubSpot Training for Teams</a></li>
+                                <li><a href="/hubspot-sales-training/">Sales Team Training</a></li>
+                                <li><a href="/hubspot-onboarding-training/">Onboarding Training</a></li>
+                                <li><a href="/hubspot-reporting-training/">Reporting Training</a></li>
+                                <li><a href="/hubspot-admin-training/">Admin Training</a></li>
+                            </ul>
+                        </div>
+                        <div class="nav-col" data-nav-col>
+                            <p class="nav-col-title">Products</p>
+                            <ul class="nav-col-list">
+                                <li><a href="/hubspot-business-days-calculator/">NetworkDays for HubSpot</a></li>
+                                <li><a href="https://networkdays.io/" target="_blank" rel="noopener">networkdays.io <span class="nav-ext" aria-hidden="true">&#8599;</span></a></li>
+                                <li><a href="https://revopsdev.com/" target="_blank" rel="noopener">RevOpsDev <span class="nav-ext" aria-hidden="true">&#8599;</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="nav-panel-foot">
+                        <a href="/services/">All services</a>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="/about/" class="nav-link">About</a>
+            </div>
+            <div class="nav-item">
+                <a href="/contact/" class="nav-link">Contact</a>
+            </div>
+        </nav>
+    </div>
+</header>
+<!-- nav:end -->
 
     <div class="wrapper">
         <main class="hero">
@@ -681,5 +1063,320 @@
             </nav>
         </footer>
     </div>
+<!-- nav-js:start -->
+<script>
+(function () {
+    var header = document.querySelector('.site-nav');
+    if (!header) return;
+
+    var toggle = header.querySelector('.nav-toggle');
+    var menu = header.querySelector('.nav-links');
+    var item = header.querySelector('.nav-item-services');
+    var caret = header.querySelector('.nav-caret');
+    var panel = header.querySelector('[data-nav-panel]');
+    if (!toggle || !menu || !item || !caret || !panel) return;
+
+    var mq = window.matchMedia('(min-width: 641px)');
+    var isOpen = false;
+    var locked = false;
+
+    function emit(name) {
+        header.dispatchEvent(new CustomEvent(name, { bubbles: true }));
+    }
+
+    function setOpen(open, lock) {
+        if (typeof lock === 'boolean') locked = lock;
+        if (open === isOpen) return;
+        isOpen = open;
+        item.classList.toggle('is-open', open);
+        caret.setAttribute('aria-expanded', open ? 'true' : 'false');
+        emit(open ? 'nav:open' : 'nav:close');
+    }
+
+    item.addEventListener('pointerenter', function (event) {
+        if (mq.matches && event.pointerType !== 'touch') setOpen(true, false);
+    });
+
+    item.addEventListener('pointerleave', function (event) {
+        if (mq.matches && event.pointerType !== 'touch' && !locked) setOpen(false, false);
+    });
+
+    item.addEventListener('focusin', function (event) {
+        if (!mq.matches) return;
+        if (event.target === caret) return;
+        setOpen(true, false);
+    });
+
+    item.addEventListener('focusout', function (event) {
+        if (!mq.matches) return;
+        if (event.relatedTarget && item.contains(event.relatedTarget)) return;
+        setOpen(false, false);
+    });
+
+    caret.addEventListener('click', function (event) {
+        event.preventDefault();
+        var next = !isOpen;
+        setOpen(next, next);
+        if (!next) caret.focus();
+    });
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && isOpen) {
+            event.preventDefault();
+            setOpen(false, false);
+            caret.focus();
+        }
+    });
+
+    document.addEventListener('click', function (event) {
+        if (!header.contains(event.target)) setOpen(false, false);
+    });
+
+    toggle.addEventListener('click', function () {
+        var open = !menu.classList.contains('is-open');
+        menu.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (!open) setOpen(false, false);
+    });
+
+    function onBreakpoint() {
+        if (mq.matches) {
+            menu.classList.remove('is-open');
+            toggle.setAttribute('aria-expanded', 'false');
+        } else {
+            setOpen(false, false);
+        }
+    }
+
+    if (mq.addEventListener) {
+        mq.addEventListener('change', onBreakpoint);
+    } else if (mq.addListener) {
+        mq.addListener(onBreakpoint);
+    }
+
+    header.setAttribute('data-nav-js', '');
+})();
+</script>
+<!-- nav-js:end -->
+<!-- motion:start -->
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+/* Progressive-enhancement motion. Stamped into every page by tools/build_nav.py.
+   Nothing here runs if GSAP is missing, if JavaScript is off, or if the visitor
+   prefers reduced motion. No CSS hides anything: hiding only happens at runtime. */
+(function () {
+    'use strict';
+
+    var REVEAL_SELECTOR = '.content-block, .section-block, .card, .impact-card, .faq-item, details';
+    var gsap = null;
+    var revealTargets = [];
+    var settled = false;
+
+    function showAll() {
+        if (settled) return;
+        settled = true;
+        if (!gsap) return;
+        if (revealTargets.length) {
+            gsap.set(revealTargets, { clearProps: 'all' });
+        }
+        revealTargets = [];
+        var panel = document.querySelector('.site-nav [data-nav-panel]');
+        if (panel) {
+            gsap.set(panel, { clearProps: 'all' });
+            var cols = panel.querySelectorAll('[data-nav-col]');
+            if (cols.length) {
+                gsap.set(cols, { clearProps: 'all' });
+            }
+        }
+    }
+
+    function bindPanel() {
+        var header = document.querySelector('.site-nav');
+        if (!header) return;
+
+        var panel = header.querySelector('[data-nav-panel]');
+        if (!panel) return;
+
+        var cols = header.querySelectorAll('[data-nav-col]');
+        var desktop = window.matchMedia('(min-width: 641px)');
+        var running = [];
+
+        function stop() {
+            var i;
+            for (i = 0; i < running.length; i += 1) {
+                if (running[i] && running[i].kill) {
+                    running[i].kill();
+                }
+            }
+            running = [];
+        }
+
+        function reset() {
+            stop();
+            gsap.set(panel, { clearProps: 'all' });
+            if (cols.length) {
+                gsap.set(cols, { clearProps: 'all' });
+            }
+        }
+
+        function open() {
+            if (!desktop.matches) return;
+            try {
+                stop();
+                gsap.set(panel, { clearProps: 'all' });
+                if (cols.length) {
+                    gsap.set(cols, { clearProps: 'all' });
+                }
+
+                var tl = gsap.timeline();
+                tl.fromTo(
+                    panel,
+                    { autoAlpha: 0, y: -8 },
+                    { autoAlpha: 1, y: 0, duration: 0.22, ease: 'power2.out' },
+                    0
+                );
+                if (cols.length) {
+                    tl.fromTo(
+                        cols,
+                        { autoAlpha: 0, y: 8 },
+                        { autoAlpha: 1, y: 0, duration: 0.22, ease: 'power2.out', stagger: 0.05 },
+                        0.02
+                    );
+                }
+                running.push(tl);
+            } catch (err) {
+                reset();
+            }
+        }
+
+        header.addEventListener('nav:open', open);
+        header.addEventListener('nav:close', reset);
+
+        if (desktop.addEventListener) {
+            desktop.addEventListener('change', reset);
+        } else if (desktop.addListener) {
+            desktop.addListener(reset);
+        }
+    }
+
+    function bindCards() {
+        if (!window.matchMedia || !window.matchMedia('(hover: hover)').matches) return;
+
+        var cards = document.querySelectorAll('.card, .impact-card');
+        var i;
+
+        function lift() {
+            gsap.to(this, { y: -4, duration: 0.2, ease: 'power2.out', overwrite: 'auto' });
+        }
+
+        function settle() {
+            gsap.to(this, { y: 0, duration: 0.2, ease: 'power2.out', overwrite: 'auto' });
+        }
+
+        for (i = 0; i < cards.length; i += 1) {
+            cards[i].addEventListener('mouseenter', lift);
+            cards[i].addEventListener('mouseleave', settle);
+        }
+    }
+
+    function bindReveals() {
+        var ScrollTrigger = window.ScrollTrigger;
+        if (!ScrollTrigger) return;
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        var nodes = document.querySelectorAll(REVEAL_SELECTOR);
+        var viewport = window.innerHeight || document.documentElement.clientHeight || 0;
+        var pending = [];
+        var i;
+
+        for (i = 0; i < nodes.length; i += 1) {
+            var el = nodes[i];
+            if (el.closest('.site-nav')) continue;
+            if (el.closest('footer')) continue;
+            if (el.closest('.footer')) continue;
+            if (el.closest('[data-nav-panel]')) continue;
+            if (el.closest('.feature-section')) continue;
+            if (el.getBoundingClientRect().top < viewport) continue;
+            // A block nested inside another reveal target rides along with its parent.
+            if (el.parentElement && el.parentElement.closest(REVEAL_SELECTOR)) continue;
+            pending.push(el);
+        }
+
+        if (!pending.length) return;
+
+        gsap.set(pending, { y: 24, autoAlpha: 0 });
+        revealTargets = pending;
+
+        function reveal(batch) {
+            gsap.to(batch, {
+                y: 0,
+                autoAlpha: 1,
+                duration: 0.6,
+                ease: 'power2.out',
+                stagger: 0.08,
+                overwrite: true,
+                clearProps: 'all'
+            });
+        }
+
+        ScrollTrigger.batch(pending, {
+            start: 'top 85%',
+            once: true,
+            interval: 0.1,
+            batchMax: 6,
+            onEnter: reveal
+        });
+
+        // Safety net: if a trigger never fires, anything that has scrolled into
+        // view while still hidden is revealed on the next scroll or resize.
+        var ticking = false;
+        function sweep() {
+            ticking = false;
+            var limit = (window.innerHeight || 0) * 0.95;
+            var stuck = [];
+            var j;
+            for (j = 0; j < revealTargets.length; j += 1) {
+                var node = revealTargets[j];
+                if (node.getBoundingClientRect().top < limit &&
+                    window.getComputedStyle(node).opacity === '0' &&
+                    !gsap.isTweening(node)) {
+                    stuck.push(node);
+                }
+            }
+            if (stuck.length) reveal(stuck);
+        }
+        function queueSweep() {
+            if (ticking) return;
+            ticking = true;
+            window.setTimeout(sweep, 400);
+        }
+        window.addEventListener('scroll', queueSweep, { passive: true });
+        window.addEventListener('resize', queueSweep);
+    }
+
+    function init() {
+        gsap = window.gsap;
+        if (!gsap) return;
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        try {
+            bindPanel();
+            bindCards();
+            bindReveals();
+        } catch (err) {
+            showAll();
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
+</script>
+<!-- motion:end -->
 </body>
 </html>
