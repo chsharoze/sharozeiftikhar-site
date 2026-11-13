@@ -1057,9 +1057,18 @@ header.site-nav:not([data-nav-js]) .nav-caret {
         display: block;
     }
 
+    /* On mobile the whole menu (#nav-menu) is the one scroll area. The panel must not
+       keep its desktop height cap and inner scroll, and menu rows must not shrink,
+       or the panel's content spills over the links that follow it. */
     .nav-panel-inner {
         display: block;
+        max-height: none;
+        overflow: visible;
         padding: 0.25rem 0 1rem;
+    }
+
+    .nav-links > * {
+        flex-shrink: 0;
     }
 
     .nav-panel-main {
