@@ -1428,7 +1428,10 @@ header.site-nav:not([data-nav-js]) .nav-caret {
 
         if (!pending.length) return;
 
-        gsap.set(pending, { y: 24, autoAlpha: 0 });
+        // Nothing is hidden at load. A section is hidden only when it is about to
+        // scroll into view (still below the screen) and is revealed as it enters,
+        // so a page rendered, captured or printed without scrolling shows everything.
+        if ((window.innerHeight || 0) >= 1800) return;
         revealTargets = pending;
 
         function reveal(batch) {
@@ -1443,12 +1446,43 @@ header.site-nav:not([data-nav-js]) .nav-caret {
             });
         }
 
+        function arm(el) {
+            return function () {
+                if (revealTargets.indexOf(el) === -1) return;
+                gsap.set(el, { y: 24, autoAlpha: 0 });
+            };
+        }
+        var k;
+        for (k = 0; k < pending.length; k += 1) {
+            ScrollTrigger.create({
+                trigger: pending[k],
+                start: 'top bottom+=120',
+                once: true,
+                onEnter: arm(pending[k])
+            });
+        }
+
         ScrollTrigger.batch(pending, {
             start: 'top 85%',
             once: true,
             interval: 0.1,
             batchMax: 6,
             onEnter: reveal
+        });
+
+        // A very tall viewport (full-page capture, crawler rendering) or printing:
+        // stop animating and show everything.
+        function release() {
+            var all = revealTargets.slice();
+            revealTargets = [];
+            if (all.length) {
+                gsap.killTweensOf(all);
+                gsap.set(all, { clearProps: 'all' });
+            }
+        }
+        window.addEventListener('beforeprint', release);
+        window.addEventListener('resize', function () {
+            if ((window.innerHeight || 0) >= 1800) release();
         });
 
         // Safety net: if a trigger never fires, anything that has scrolled into
