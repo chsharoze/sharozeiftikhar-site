@@ -59,7 +59,7 @@
             "HubSpot Certified Trainer"
           ],
           "url": "https://sharozeiftikhar.com/",
-          "worksFor": { "@id": "https://sharozeiftikhar.com/#organization" },
+          "worksFor": [{ "@id": "https://sharozeiftikhar.com/#organization" }, { "@type": "Organization", "@id": "https://valuefirstteam.com/#organization", "name": "Value-First Team", "url": "https://valuefirstteam.com/" }],
           "sameAs": [
             "https://www.linkedin.com/in/sharoze/",
             "https://medium.com/@sharoze.iftikhar",
@@ -321,6 +321,10 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 1.25rem;
             width: 100%;
+        }
+
+        .cards-grid > .card:last-child:nth-child(odd) {
+            grid-column: 1 / -1;
         }
 
         .card {
@@ -1485,6 +1489,10 @@ body {
                 <div class="card">
                     <h3 class="card-title">HubSpot Certified Trainer</h3>
                     <p class="card-desc">Certified to deliver HubSpot training to revenue teams</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">HubSpot Solutions Partner</h3>
+                    <p class="card-desc">Implementation and consulting inside the HubSpot partner program</p>
                 </div>
                 <div class="card">
                     <h3 class="card-title">Claude Partner Badge</h3>
